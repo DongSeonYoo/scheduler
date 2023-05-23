@@ -7,5 +7,10 @@ function validate() {
     return false;
   }
 
+  if (idValue.length >= 14 || pwValue.length >= 18) {
+    alert("아이디 또는 비밀번호의 길이가 너무 깁니다");
+    return false;
+  }
+
   return true;
 }

@@ -1,14 +1,13 @@
 function validate() {
-  const idValue = document.getElementById("id-text-field").value;
   const nameValue = document.getElementById("name-text-field").value;
   const phoneNumberValue = document.getElementById("phonenumber-text-field").value;
 
-  if (idValue === "" || nameValue === "" || phoneNumberValue === "") {
+  if (nameValue === "" || phoneNumberValue === "") {
     alert("입력되지 않은 폼이 있습니다");
     return false;
   }
 
-  if (idValue.length >= 14 || nameValue.length >= 6) {
+  if (nameValue.length >= 6 || phoneNumberValue.length > 11) {
     alert("아이디 또는 이름의 길이를 확인해주세요");
     return false;
   }

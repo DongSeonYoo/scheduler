@@ -25,7 +25,7 @@
         <div class="join_content">
 
           <h4>새로운 비밀번호</h4>
-          <label id="pw-check-label" class="check-label">형식에 맞지 않습니다</label>
+          <label id="pw-check-label" class="check-label">비밀번호 형식에 맞지 않습니다</label>
 
           <span class="input-box">
             <input id="new-pw-textfield" class="info-text-field" placeholder="새롭게 설정할 비밀번호" type="password" name="new_pw_value">
@@ -35,7 +35,7 @@
           <label id="pw-same-check-label" class="check-label">비밀번호가 동일하지 않습니다</label>
 
           <span class="input-box">
-            <input id="pw-check-textfield" class="info-text-field" placeholder="새롭게 설정할 비밀번호" type="password">
+            <input id="pw-check-textfield" class="info-text-field" placeholder="동일한 비밀번호" type="password">
           </span>
 
           <div id="button-container">

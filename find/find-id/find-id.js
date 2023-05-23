@@ -8,6 +8,11 @@ function validate() {
     return false;
   }
 
+  if (idValue.length >= 14 || nameValue.length >= 6) {
+    alert("아이디 또는 이름의 길이를 확인해주세요");
+    return false;
+  }
+
   return true;
 }
 

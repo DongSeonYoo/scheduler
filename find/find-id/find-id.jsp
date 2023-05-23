@@ -22,11 +22,6 @@
       <form action="find-id_action.jsp" onsubmit="return validate()">
 
         <div class="join_content">
-          <h4>아이디</h4>
-
-          <span class="input-box">
-            <input id="id-text-field" class="info-text-field" placeholder="ID" type="text" name="id_value">
-          </span>
 
           <h4>이름</h4>
 

@@ -47,7 +47,7 @@
             아이디 찾기
           </button>
 
-          <button id="home-button" class="action-button">
+          <button id="home-button" class="action-button" type="button">
             로그인 화면으로 가기
           </button>
         

@@ -42,8 +42,8 @@
 
       </form>
       <div id="other-button">
-        <a id="find-id-link" href="find/find-id.jsp">아이디 찾기</a>
-        <a id="find-pw-link" href="find/find-pw.jsp">비밀번호 찾기</a>
+        <a id="find-id-link" href="find/find-id/find-id.jsp">아이디 찾기</a>
+        <a id="find-pw-link" href="find/find-pw/find-pw.jsp">비밀번호 찾기</a>
         <a id="signup-link" href="signup/signup.jsp">회원가입</a>
       </div>
 

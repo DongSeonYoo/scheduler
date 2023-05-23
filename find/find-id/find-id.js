@@ -12,6 +12,11 @@ function validate() {
     return false;
   }
 
+  if (phoneNumberCheckLabel.style.color === "red") {
+    alert("전화번호 형식을 확인해주세요");
+    return false;
+  }
+
   return true;
 }
 

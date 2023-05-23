@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-  <title>아이디 찾기 페이지</title>
+    <title>아이디 찾기 페이지</title>
 
-  <link rel="stylesheet" type="text/css" href="find-id.css">
+    <link rel="stylesheet" type="text/css" href="find-id.css">
 </head>
 
 <body>
@@ -38,26 +38,27 @@
           <label id="phonenumber-check-label">올바른 형식이 아닙니다</label>
 
           <span id="phonenumber-input-box" class="input-box">
-            <input id="phonenumber-text-field" class="info-text-field" placeholder="전화번호" type="text" name="phonenumber_value">
+            <input id="phonenumber-text-field" class="info-text-field" placeholder="전화번호" type="text"
+              name="phonenumber_value">
           </span>
 
-        <div id="button-container">
+          <div id="button-container">
 
-          <button id="find-id-button" class="action-button" type="submit">
-            아이디 찾기
-          </button>
+            <button id="find-id-button" class="action-button" type="submit">
+              아이디 찾기
+            </button>
 
-          <button id="home-button" class="action-button" type="button">
-            로그인 화면으로 가기
-          </button>
-        
-        </div>
+            <button id="home-button" class="action-button" type="button">
+              로그인 화면으로 가기
+            </button>
+
+          </div>
 
         </div>
 
       </form>
 
-      </div>
+    </div>
 
     </div>
   </section>

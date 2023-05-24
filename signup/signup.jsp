@@ -81,7 +81,7 @@
           <div id="button-container">
 
             <button id="find-id-button" class="action-button" type="submit">
-              비밀번호 찾기
+              회원가입
             </button>
 
             <button id="home-button" class="action-button" type="button">

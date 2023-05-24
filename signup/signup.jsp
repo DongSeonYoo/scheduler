@@ -49,7 +49,7 @@
           </div>
 
           <div id="form-container" class="select">
-            <div id="position-select">
+            <div id="position-select-form">
               <h4>직급</h4>
               <select class="input-box" name="grade">
                 <option value=""> 직급 </option>

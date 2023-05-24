@@ -51,14 +51,14 @@
           <div id="form-container" class="select">
             <div id="position-select-form">
               <h4>직급</h4>
-              <select class="input-box" name="grade">
+              <select id="position-select" class="input-box" name="grade" onchange="changeFunc(this)">
                 <option value=""> 직급 </option>
                 <option value="admin"> 관리자 </option>
                 <option value="leader"> 팀장 </option>
                 <option value="member"> 팀원 </option>
               </select>
             </div>
-
+            
             <div id="name-form">
               <h4>이름</h4>
               <span class="input-box">

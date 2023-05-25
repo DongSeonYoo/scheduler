@@ -27,6 +27,12 @@ function validate() {
     alert("이름이 입력되지 않았습니다");
     return false;
   }
+
+  const phoneNumberValue = document.getElementById("phonenumber-text-field").value;
+  if (phoneNumberValue === "") {
+    alert("전화번호가 입력되지 않았습니다");
+    return false;
+  }
     
   return true;
 }

@@ -41,7 +41,7 @@
 
           <div id="form-container">
             <h4>비밀번호 확인</h4>
-            <label id="pw-check-label" class="check-label">비밀번호가 동일하지 않습니다</label>
+            <label id="pw-same-check-label" class="check-label">비밀번호가 동일하지 않습니다</label>
 
             <span class="input-box">
               <input id="pw-check-text-field" class="info-text-field" placeholder="동일한 비밀번호" type="password">

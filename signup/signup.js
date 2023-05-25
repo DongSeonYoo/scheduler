@@ -41,3 +41,18 @@ let positionSelect = "";
 function changeFunc(target) {
   positionSelect = target.value;
 }
+
+const idCheckLabel = document.getElementById("id-check-label");
+const idInput = document.getElementById("id-text-field");
+idInput.addEventListener("input", () => {
+  const idRegex = /^(?=.*\d)(?=.*[a-z])[a-z\d]{6,10}$/;
+  const idValue = idInput.value;
+  
+  if (idRegex.test(idValue)) {
+    idCheckLabel.innerHTML = "올바른 형식입니다";
+    idCheckLabel.style.color = "blue";
+  } else {
+    idCheckLabel.innerHTML = "올바른 형식이 아닙니다";
+    idCheckLabel.style.color = "red";
+  }
+});

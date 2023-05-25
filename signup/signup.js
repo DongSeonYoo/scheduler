@@ -5,5 +5,11 @@ function validate() {
     return false;
   }
 
+  const pwValue = document.getElementById("pw-text-field").value;
+  if (pwValue === "") {
+    alert("비밀번호가 입력되지 않았습니다");
+    return false;
+  }
+    
   return true;
 }

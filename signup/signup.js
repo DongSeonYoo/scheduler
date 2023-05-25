@@ -10,6 +10,12 @@ function validate() {
     alert("비밀번호가 입력되지 않았습니다");
     return false;
   }
+
+  const pwCheckValue = document.getElementById("pw-check-text-field").value;
+  if (pwCheckValue === "") {
+    alert("비밀번호 재확인이 입력되지 않았습니다");
+    return false;
+  }
     
   return true;
 }

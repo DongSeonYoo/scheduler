@@ -31,6 +31,7 @@ input:focus {
   text-align: center;
   margin-bottom: 50px;
   color: white;
+  font-size: 40px;
 }
 
 #content {
@@ -48,6 +49,11 @@ input:focus {
   background: #fff;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.info-label {
+  color: gray;
+  font-size: 20px;
 }
 
 #phonenumber-input-box {
@@ -84,6 +90,10 @@ input:focus {
 
   border: none;
   cursor: pointer;
+}
+
+#find-id-button:hover {
+  background-color: orange;
 }
 
 #other-button {

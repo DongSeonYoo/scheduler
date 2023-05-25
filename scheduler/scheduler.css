@@ -1,1 +1,153 @@
 /* 스케쥴러 css */
+body {
+  margin: 0px;
+  background-image: url("/daily/scheduler/image/background-image.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  margin: 0px;
+}
+
+button {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+#top-bar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: solid 1px;
+}
+
+.topbar-draw-color {
+  background-color: antiquewhite;
+}
+
+#current-user-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-grow: 1;
+}
+
+#menu-open-button {
+  cursor: pointer;
+  border: none;
+  margin-right: 20px;
+  background-color: antiquewhite;
+}
+
+#date-select-area {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-button {
+  background-color: rgb(226, 141, 111);
+  width: 35px;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#year-month-box {
+  background-color: rgb(226, 141, 111);
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  border-radius: 5px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#year-month-box {
+  display: flex;
+  width: 150px;
+  justify-content: space-evenly;
+}
+
+#scheduler-container {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+
+  min-width: 500px;
+  width: 95%;
+}
+
+#day-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: wheat;
+  border-radius: 10px;
+
+  min-width: 100px;
+  height: 100%;
+}
+
+.day-button {
+  width: 95%;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#schedule-area {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  background-color: rgb(250, 188, 235);
+  border-radius: 10px;
+}
+
+#schedule-box {
+  background-color: aliceblue;
+  height: 300px;
+
+  border-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#day-label {
+  text-align: center;
+  align-items: center;
+  border-bottom: solid 1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  background-color: antiquewhite;
+}
+
+@media (max-width: 720px) {
+  #day-bar {
+    display: none;
+  }
+
+  #scheduler-container {
+    width: 100%;
+  }
+
+  #schedule-area {
+    width: 90%;    
+  }
+}

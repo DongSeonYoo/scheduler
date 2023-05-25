@@ -16,6 +16,16 @@ function validate() {
     alert("비밀번호 재확인이 입력되지 않았습니다");
     return false;
   }
+
+  if (positionSelect === "") {
+    alert("직급을 선택하지 않았습니다");
+    return false;
+  }
     
   return true;
+}
+
+let positionSelect = "";
+function changeFunc(target) {
+  positionSelect = target.value;
 }

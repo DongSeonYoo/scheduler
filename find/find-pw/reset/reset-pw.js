@@ -53,21 +53,3 @@ checkPwInput.addEventListener("input", () => {
     pwSameCheckLabel.style.color = "red";
   }
 })
-
-
-
-// const pwCheckLabel = document.getElementById("pw-check-label");
-// const phoneNumberInput = document.getElementById("phonenumber-text-field");
-
-// phoneNumberInput.addEventListener("input", () => {
-//   const phoneNumberValue = phoneNumberInput.value;
-//   const phoneNumberRegx = /^0\d{10}$/;
-  
-//   if (phoneNumberRegx.test(phoneNumberValue)) {
-//     phoneNumberCheckLabel.innerHTML = "올바른 형식입니다";
-//     phoneNumberCheckLabel.style.color = "blue";
-//   } else {
-//     phoneNumberCheckLabel.innerHTML = "올바른 형식이 아닙니다";
-//     phoneNumberCheckLabel.style.color = "red";
-//   }
-// });

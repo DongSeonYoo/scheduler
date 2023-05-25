@@ -21,6 +21,12 @@ function validate() {
     alert("직급을 선택하지 않았습니다");
     return false;
   }
+
+  const nameValue = document.getElementById("name-text-field").value;
+  if (nameValue === "") {
+    alert("이름이 입력되지 않았습니다");
+    return false;
+  }
     
   return true;
 }

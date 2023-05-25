@@ -23,13 +23,13 @@
 
         <div class="join_content">
 
-          <h4>이름</h4>
+          <h4 class="info-label">이름</h4>
 
           <span class="input-box">
             <input id="name-text-field" class="info-text-field" placeholder="이름" type="text" name="name_value">
           </span>
 
-          <h4 id="phonenumber-label">전화번호 예시: 01000000000</h4>
+          <h4 id="phonenumber-label" class="info-label">전화번호 예시: 01000000000</h4>
           <label id="phonenumber-check-label">올바른 형식이 아닙니다</label>
 
           <span id="phonenumber-input-box" class="input-box">

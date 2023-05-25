@@ -31,12 +31,18 @@ input:focus {
   text-align: center;
   margin-bottom: 50px;
   color: white;
+  font-size: 40px;
 }
 
 #content {
   width: 460px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.info-label {
+  color: gray;
+  font-size: 20px;
 }
 
 .input-box {
@@ -84,3 +90,6 @@ input:focus {
   justify-content: space-around;
 }
 
+#reset-pw-button:hover {
+  background-color: orange;
+}

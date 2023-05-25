@@ -24,14 +24,14 @@
 
         <div class="join_content">
 
-          <h4>새로운 비밀번호</h4>
+          <h4 class="info-label">새로운 비밀번호</h4>
           <label id="pw-check-label" class="check-label">비밀번호 형식에 맞지 않습니다</label>
 
           <span class="input-box">
             <input id="new-pw-textfield" class="info-text-field" placeholder="새롭게 설정할 비밀번호" type="password" name="new_pw_value">
           </span>
 
-          <h4>비밀번호 재확인</h4>
+          <h4 class="info-label">비밀번호 재확인</h4>
           <label id="pw-same-check-label" class="check-label">비밀번호가 동일하지 않습니다</label>
 
           <span class="input-box">

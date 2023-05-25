@@ -56,3 +56,18 @@ idInput.addEventListener("input", () => {
     idCheckLabel.style.color = "red";
   }
 });
+
+const pwCheckLabel = document.getElementById("pw-check-label");
+const pwInput = document.getElementById("pw-text-field");
+pwInput.addEventListener("input", () => {
+  const pwRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[!@#$%^&*.])[0-9a-z!@#$%^&*.]{10,14}$/;
+  const pwValue = pwInput.value;
+
+  if (pwRegex.test(pwValue)) {
+    pwCheckLabel.innerHTML = "올바른 형식입니다";
+    pwCheckLabel.style.color = "blue";
+  } else {
+    pwCheckLabel.innerHTML = "비밀번호 형식에 맞지 않습니다";
+    pwCheckLabel.style.color = "red";
+  }
+});

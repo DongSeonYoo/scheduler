@@ -1,7 +1,12 @@
+const homeBtn = document.getElementById("home-button");
+homeBtn.addEventListener("click", () => {
+  location.href = "/";
+});
+
 let positionSelect = "";
 function changeFunc(target) {
   positionSelect = target.value;
-}
+};
 
 const idCheckLabel = document.getElementById("id-check-label");
 const idInput = document.getElementById("id-text-field");

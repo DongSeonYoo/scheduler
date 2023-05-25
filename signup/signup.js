@@ -71,3 +71,17 @@ pwInput.addEventListener("input", () => {
     pwCheckLabel.style.color = "red";
   }
 });
+
+const pwSameCheckLabel = document.getElementById("pw-same-check-label");
+const checkPwInput = document.getElementById("pw-check-text-field");
+checkPwInput.addEventListener("input", () => {
+  const checkPwValue = checkPwInput.value;
+
+  if (checkPwValue === pwInput.value) {
+    pwSameCheckLabel.innerHTML = "비밀번호가 동일합니다";
+    pwSameCheckLabel.style.color = "blue";
+  } else {
+    pwSameCheckLabel.innerHTML = "비밀번호가 동일하지 않습니다";
+    pwSameCheckLabel.style.color = "red";
+  }
+})

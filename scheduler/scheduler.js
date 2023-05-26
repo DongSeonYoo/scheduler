@@ -161,7 +161,5 @@ function makeSchedule(scheduleInputValue, timeInputValue) {
   deleteButton.textContent = "삭제";
   scheduleSettionButton.appendChild(deleteButton);
 
-  // 스케줄 박스를 schedule-area에 추가
-  const scheduleArea = document.getElementById("schedule-area");
   scheduleArea.appendChild(scheduleBox);
 }

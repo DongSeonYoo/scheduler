@@ -57,8 +57,17 @@ const modalClose = () => {
 
 
 // 모달에 관련된 동작
-const addScheduleBtn = document.getElementById("add-schedule-button");
-addScheduleBtn.addEventListener("click", modalOpen);
+
+// 일정 추가 버튼 누르면 모달 오픈
+const addScheduleBtn = document.getElementById("schedule-add-button");
+addScheduleBtn.addEventListener("click", addModalValidate);
+
+const modalOpenBtn = document.getElementById("add-schedule-button");
+modalOpenBtn.addEventListener("click", () => {
+  const yearMonthLabel = document.getElementById("year-month-label");
+  yearMonthLabel.innerHTML = currentYear + "년" + currentMonth + "월";
+  modalOpen();
+});
 
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);

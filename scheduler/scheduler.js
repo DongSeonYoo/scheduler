@@ -152,12 +152,14 @@ function makeSchedule(scheduleInputValue, timeInputValue) {
   // 수정 버튼 생성
   const modifyButton = document.createElement("button");
   modifyButton.id = "schedule-modify-button";
+  modifyButton.className = "schedule-set-button";
   modifyButton.textContent = "수정";
   scheduleSettionButton.appendChild(modifyButton);
 
   // 삭제 버튼 생성
   const deleteButton = document.createElement("button");
   deleteButton.id = "schedule-delete-button";
+  deleteButton.className = "schedule-set-button";
   deleteButton.textContent = "삭제";
   scheduleSettionButton.appendChild(deleteButton);
 

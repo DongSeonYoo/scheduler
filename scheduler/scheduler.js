@@ -26,3 +26,24 @@ yearAfterBtn.addEventListener("click", () => {
     yearSelectLabel.innerHTML = currentYear + "년"; 
   }
 });
+
+// const addScheduleBtn = document.getElementById("add-schedule-button");
+// addScheduleBtn.addEventListener("click", () => {
+//   document.querySelector(".modal").classList.remove("hidden");
+// })
+
+const modalOpen = () => {
+  document.querySelector(".modal").classList.remove("hidden");
+}
+
+const modalClose = () => {
+  document.querySelector(".modal").classList.add("hidden");
+}
+
+const addScheduleBtn = document.getElementById("add-schedule-button");
+addScheduleBtn.addEventListener("click", modalOpen);
+
+const modalCloseBtn = document.getElementById("modal-close-button");
+modalCloseBtn.addEventListener("click", modalClose);
+
+const background = document.querySelector(".background").addEventListener("click", modalClose);

@@ -27,11 +27,6 @@ yearAfterBtn.addEventListener("click", () => {
   }
 });
 
-// const addScheduleBtn = document.getElementById("add-schedule-button");
-// addScheduleBtn.addEventListener("click", () => {
-//   document.querySelector(".modal").classList.remove("hidden");
-// })
-
 const modalOpen = () => {
   document.querySelector(".modal").classList.remove("hidden");
 }

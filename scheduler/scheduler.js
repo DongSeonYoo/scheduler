@@ -72,7 +72,8 @@ modalOpenBtn.addEventListener("click", () => {
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);
 
-const background = document.querySelector(".background").addEventListener("click", modalClose)
+const background = document.querySelector(".background");
+background.addEventListener("click", modalClose);
 
 function addModalValidate() {
 

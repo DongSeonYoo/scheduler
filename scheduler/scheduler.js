@@ -41,6 +41,12 @@ yearAfterBtn.addEventListener("click", () => {
   }
 });
 
+// 월 선택 버튼
+const monthSelectBtn = document.getElementById("month-select-form");
+monthSelectBtn.addEventListener("input", () => {
+  currentMonth = monthSelectBtn.value;
+})
+
 const modalOpen = () => {
   document.querySelector(".modal").classList.remove("hidden");
 }

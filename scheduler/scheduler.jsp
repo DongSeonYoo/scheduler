@@ -32,7 +32,7 @@
 
           <div id="year-month-box">
 
-            <div id="year-select-label">2023년</div>
+            <div id="year-select-label"></div>
 
               <select id="month-select-form">
                 <option value="1">1</option>
@@ -54,6 +54,8 @@
           </div>
 
           <button id="year-after-button" class="year-button"> > </button>
+
+          <button id="add-schedule-button">일정 추가</button>
     </section>
     
     <section id="scheduler-container">
@@ -82,9 +84,39 @@
       </section>
 
     </section>
+
+    <div class="modal hidden">
+
+      <div class="background"></div>
+
+      <div class="modalBox">
+        <div id="inside">
+
+          <h2>일정 추가</h2>
+
+          <form id="schedule-data-form" action="">
+
+            <input id="time-select-input" type="time">
+
+            <input id="schedule-text-area" type="text">
+
+            <div id="button-area">
+              <button id="schedule-add-button" class="modal-button" type="submit">
+                추가
+              </button>
+
+              <button id="modal-close-button" class="modal-button" type="button">
+                취소
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </main>
 
-  <script src="/daily/scheduler/scheduler.js"></script>
+  <script src="/scheduler/scheduler.js"></script>
 </body>
 
 </html>

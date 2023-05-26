@@ -11,6 +11,8 @@ function initYearSelectLabel() {
   yearSelectLabel.innerHTML = currentYear + "년";
 }
 
+
+// 스케쥴러 페이지
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML >= "2000") {
@@ -35,6 +37,8 @@ const modalClose = () => {
   document.querySelector(".modal").classList.add("hidden");
 }
 
+
+// 모달에 관련된 동작
 const addScheduleBtn = document.getElementById("add-schedule-button");
 addScheduleBtn.addEventListener("click", modalOpen);
 

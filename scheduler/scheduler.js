@@ -147,7 +147,7 @@ function makeSchedule(scheduleInputValue, timeInputValue) {
   // 스케줄 설정 버튼 생성
   const scheduleSettionButton = document.createElement("div");
   scheduleSettionButton.id = "schedule-settion-button";
-  scheduleBox.appendChild(scheduleSettionButton);
+  dateScheduleBox.appendChild(scheduleSettionButton);
 
   // 수정 버튼 생성
   const modifyButton = document.createElement("button");

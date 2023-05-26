@@ -67,5 +67,68 @@ function addModalValidate() {
     return false;
   }
 
+  makeSchedule(scheduleInputValue, timeInputValue);
+  modalClose(); // 모달 닫기
   return true;
+}
+
+
+function makeSchedule(scheduleInputValue, timeInputValue) {
+  // 스케줄 박스 요소 생성
+  const scheduleBox = document.createElement("section");
+  scheduleBox.id = "schedule-box";
+
+  // 날짜 라벨 생성
+  const dayLabel = document.createElement("h1");
+  dayLabel.id = "day-label";
+  dayLabel.textContent = "1일";
+  scheduleBox.appendChild(dayLabel);
+
+  // 날짜와 스케줄 내용을 담는 요소 생성
+  const dateScheduleBox = document.createElement("div");
+  dateScheduleBox.id = "date-schedule-box";
+  scheduleBox.appendChild(dateScheduleBox);
+
+  // 날짜 요소 생성
+  const dateBox = document.createElement("div");
+  dateBox.id = "date-box";
+  dateScheduleBox.appendChild(dateBox);
+
+  // 날짜 설명 생성
+  const dateDescription = document.createElement("p");
+  dateDescription.id = "date-description";
+  dateDescription.textContent = timeInputValue;
+  dateBox.appendChild(dateDescription);
+
+  // 스케줄 설명 박스 생성
+  const scheduleDescriptionBox = document.createElement("div");
+  scheduleDescriptionBox.id = "schedule-description-box";
+  dateScheduleBox.appendChild(scheduleDescriptionBox);
+
+  // 스케줄 설명 생성
+  const scheduleDescription = document.createElement("p");
+  scheduleDescription.id = "schedule-description";
+  scheduleDescription.textContent = scheduleInputValue;
+  scheduleDescriptionBox.appendChild(scheduleDescription);
+
+  // 스케줄 설정 버튼 생성
+  const scheduleSettionButton = document.createElement("div");
+  scheduleSettionButton.id = "schedule-settion-button";
+  scheduleBox.appendChild(scheduleSettionButton);
+
+  // 수정 버튼 생성
+  const modifyButton = document.createElement("button");
+  modifyButton.id = "schedule-modify-button";
+  modifyButton.textContent = "수정";
+  scheduleSettionButton.appendChild(modifyButton);
+
+  // 삭제 버튼 생성
+  const deleteButton = document.createElement("button");
+  deleteButton.id = "schedule-delete-button";
+  deleteButton.textContent = "삭제";
+  scheduleSettionButton.appendChild(deleteButton);
+
+  // 스케줄 박스를 schedule-area에 추가
+  const scheduleArea = document.getElementById("schedule-area");
+  scheduleArea.appendChild(scheduleBox);
 }

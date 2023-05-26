@@ -41,4 +41,27 @@ addScheduleBtn.addEventListener("click", modalOpen);
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);
 
-const background = document.querySelector(".background").addEventListener("click", modalClose);
+const background = document.querySelector(".background").addEventListener("click", modalClose)
+
+function addModalValidate() {
+
+  const timeInputValue = document.getElementById("time-select-input").value;
+  const scheduleInputValue = document.getElementById("schedule-text-area").value;
+
+  if (timeInputValue === "") {
+    alert("날짜를 선택해주세요");
+    return false;
+  }
+
+  if (scheduleInputValue === "") {
+    alert("일정을 입력해주세요");
+    return false;
+  }
+
+  if (scheduleInputValue.length > 300) {
+    alert("일정은 300자 이하여야 합니다");
+    return false;
+  }
+
+  return true;
+}

@@ -8,32 +8,26 @@
   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <title>스케쥴러</title>
 
-    <link rel="stylesheet" type="text/css" href="/daily/scheduler/scheduler.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha512-..." crossorigin="anonymous" />
-
+    <link rel="stylesheet" type="text/css" href="scheduler.css">
 </head>
 
 <body>
-
   <header id="top-bar" class="topbar-draw-color">
     <div id="current-user-name">
-      유동선 [팀원]의 일정
+      유동선 [팀원]의 일정 <!-- db에서 이름 가져와서 넣을거고-->
     </div>
-
     <button id="menu-open-button">
       menu
     </button>
   </header>
 
   <main>
-    <section id="date-select-area">
-      <button id="year-previous-button" class="year-button"> < </button>
-
-          <div id="year-month-box">
-
-            <div id="year-select-label"></div>
-
+    <div id="date-add-container">
+      <section id="date-select-area">
+        <button id="year-previous-button" class="year-button">
+          < </button>
+            <div id="year-month-box">
+              <div id="year-select-label"></div>
               <select id="month-select-form">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -48,55 +42,70 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
+              <div id="month-label">월</div>
+            </div>
+            <button id="year-after-button" class="year-button"> > </button>
+      </section>
 
-            <div id="month-label">월</div>
+      <button class="schedule-view-add-button">일정 보기</button> <!-- db에서 년 월의 일정 가져옴 -->
 
-          </div>
+      <button id="add-schedule-button" class="schedule-view-add-button">일정 추가</button>
+    </div>
 
-          <button id="year-after-button" class="year-button"> > </button>
-
-          <button id="add-schedule-button">일정 추가</button>
-    </section>
-    
     <section id="scheduler-container">
 
-      <section id="day-bar">
-
-        <button class="day-button">
-          1
-        </button>
-        <button class="day-button">
-          2
-        </button>
-        <button class="day-button">
-          3
-        </button>
-      </section>
-
       <section id="schedule-area">
-        <section id="schedule-box">
-          <h1 id="day-label">1일</h1>
-        </section>
-
-        <section id="schedule-box">
-          <h1 id="day-label">2일</h1>
-        </section>
       </section>
-
     </section>
 
     <div class="modal hidden">
-
       <div class="background"></div>
-
       <div class="modalBox">
         <div id="inside">
-
           <h2>일정 추가</h2>
+          <form id="schedule-data-form" action="" onsubmit="return addModalValidate(event)">
+            <div id="select-input-area">
+              
+              <div id="year-month-label">
+              </div>
 
-          <form id="schedule-data-form" action="" onsubmit="return addModalValidate()">
+              <select id="day-select-input">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <span>일</span>
 
-            <input id="time-select-input" type="time">
+              <input id="time-select-input" type="time">
+            </div>
 
             <input id="schedule-text-area" type="text">
 
@@ -110,10 +119,10 @@
               </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
+
   </main>
 
   <script src="/scheduler/scheduler.js"></script>

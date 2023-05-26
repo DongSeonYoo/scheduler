@@ -94,7 +94,7 @@
 
           <h2>일정 추가</h2>
 
-          <form id="schedule-data-form" action="">
+          <form id="schedule-data-form" action="" onsubmit="return addModalValidate()">
 
             <input id="time-select-input" type="time">
 

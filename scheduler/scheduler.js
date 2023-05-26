@@ -32,6 +32,7 @@ yearPreviousBtn.addEventListener("click", () => {
   }
 });
 
+// 이후 연도 버튼
 const yearAfterBtn = document.getElementById("year-after-button");
 yearAfterBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML <= "2030") {

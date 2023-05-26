@@ -2,17 +2,28 @@
 
 let yearSelectLabel;
 let currentYear;
+let currentMonth;
+let scheduleArea = document.getElementById("schedule-area");
 
 initYearSelectLabel();
 
 function initYearSelectLabel() {
   yearSelectLabel = document.getElementById("year-select-label");
   currentYear = "2023";
+  currentMonth = "1";
   yearSelectLabel.innerHTML = currentYear + "년";
+
+  if (scheduleArea.childElementCount === 0) {
+    const noScheduleText = document.createElement("p");
+    noScheduleText.id = "no-schedule-text";
+    noScheduleText.innerHTML = "일정이 없습니다";
+    scheduleArea.appendChild(noScheduleText);
+  }
 }
 
-
 // 스케쥴러 페이지
+
+// 이전 연도 버튼
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML >= "2000") {

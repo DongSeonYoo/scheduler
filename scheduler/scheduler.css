@@ -9,6 +9,8 @@ body {
   background-image: url("/daily/scheduler/image/background-image.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button {
@@ -45,8 +47,29 @@ button {
   background-color: antiquewhite;
 }
 
-#date-select-area {
+#date-add-container {
+  display: flex;
+  align-items: center;
   padding-top: 100px;
+  justify-content: center;
+  width: 111%;
+}
+
+#date-select-area {
+  display: flex;
+  align-items: center;
+}
+
+.schedule-view-add-button {
+  background-color: rgb(226, 141, 111);
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#date-select-area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +89,6 @@ button {
   height: 25px;
   border-radius: 5px;
 
-  margin-left: 30px;
   cursor: pointer;
 }
 
@@ -94,7 +116,6 @@ button {
   justify-content: center;
 
   min-width: 500px;
-  width: 95%;
 }
 
 #day-bar {
@@ -120,9 +141,10 @@ button {
 #schedule-area {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 60%;
   background-color: rgb(250, 188, 235);
   border-radius: 10px;
+  justify-content: center;
 }
 
 #schedule-box {
@@ -136,6 +158,31 @@ button {
   width: 100%;
   margin-bottom: 10px;
 }
+
+#schedule {
+  display: flex;
+  align-items: center;
+}
+
+#date-schedule-box {
+  display: flex;
+}
+
+#date-box {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#schedule-description-box {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#schedule-settion-button {
+  margin-right: 10px;
+  margin-left: auto;
+}
+
 
 #day-label {
   text-align: center;
@@ -172,8 +219,7 @@ button {
 .modalBox {
   position: absolute;
   background-color: #cec2c2;
-  width: 400px;
-  height: 350px;
+  width: 450px;
   padding: 15px;
   border-radius: 15px;
 }
@@ -193,11 +239,17 @@ button {
   display: flex;
   flex-direction: column;
 
+  padding-top: 35px;
   width: 100%;
 }
 
-#time-select-input {
-  margin-right: auto;
+#select-input-area {
+  display: flex;
+  align-items: center;
+}
+
+#no-schedule-text {
+  text-align: center;
 }
 
 #schedule-text-area {
@@ -229,6 +281,14 @@ button {
 #schedule-add-button {
   background-color: green;
   margin-right: 5px;
+}
+
+.schedule-set-button {
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #modal-close-button {

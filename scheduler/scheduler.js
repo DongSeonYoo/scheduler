@@ -75,7 +75,8 @@ modalCloseBtn.addEventListener("click", modalClose);
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
-function addModalValidate() {
+function addModalValidate(event) {
+  event.preventDefault();
 
   const timeInputValue = document.getElementById("time-select-input").value;
   const scheduleInputValue = document.getElementById("schedule-text-area").value;

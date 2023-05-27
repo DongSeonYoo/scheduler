@@ -52,7 +52,6 @@ button {
   align-items: center;
   padding-top: 100px;
   justify-content: center;
-  width: 111%;
 }
 
 #date-select-area {
@@ -141,10 +140,11 @@ button {
 #schedule-area {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
   background-color: rgb(250, 188, 235);
   border-radius: 10px;
   justify-content: center;
+  max-width: 550px;
 }
 
 #schedule-box {
@@ -171,7 +171,7 @@ button {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: antiquewhite;
-  gap: 320px;
+  gap: 40%;
   justify-content: flex-end;
   border-bottom: 1px solid;
   cursor: pointer;
@@ -309,18 +309,4 @@ button {
 
 #modal-close-button {
   margin-left: 5px;
-}
-
-@media (max-width: 720px) {
-  #day-bar {
-    display: none;
-  }
-
-  #scheduler-container {
-    width: 100%;
-  }
-
-  #schedule-area {
-    width: 90%;    
-  }
 }

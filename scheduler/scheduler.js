@@ -181,3 +181,15 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
 
   scheduleArea.appendChild(scheduleBox);
 }
+
+const menuBar = document.getElementById("menu-bar");
+
+const menuOpenBtn = document.getElementById("menu-open-button");
+menuOpenBtn.addEventListener("click", () => {
+  menuBar.classList.remove("hidden");
+})
+
+const menuCloseBtn = document.getElementById("menu-close-button");
+menuCloseBtn.addEventListener("click", () => {
+  menuBar.classList.add("hidden");
+})

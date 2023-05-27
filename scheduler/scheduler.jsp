@@ -24,10 +24,12 @@
   <main>
     <div id="date-add-container">
       <section id="date-select-area">
-        <button id="year-previous-button" class="year-button">
-          < </button>
+        <button id="year-previous-button" class="year-button"> < </button>
+
             <div id="year-month-box">
+
               <div id="year-select-label"></div>
+
               <select id="month-select-form">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -42,9 +44,12 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
+
               <div id="month-text">월</div>
-            </div>
-            <button id="year-after-button" class="year-button"> > </button>
+
+          </div>
+          
+        <button id="year-after-button" class="year-button"> > </button>
       </section>
 
       <button class="schedule-view-add-button">일정 보기</button> <!-- db에서 년 월의 일정 가져옴 -->
@@ -53,7 +58,6 @@
     </div>
 
     <section id="scheduler-container">
-
       <section id="schedule-area">
       </section>
     </section>
@@ -123,7 +127,7 @@
         </div>
       </div>
     </div>
-
+    
   </main>
 
   <script src="/scheduler/scheduler.js"></script>

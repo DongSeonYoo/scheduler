@@ -80,11 +80,17 @@ background.addEventListener("click", modalClose);
 function addModalValidate(event) {
   event.preventDefault();
 
+  const dayInputValue = document.getElementById("day-select-input").value;
   const timeInputValue = document.getElementById("time-select-input").value;
   const scheduleInputValue = document.getElementById("schedule-text-area").value;
 
+  if (dayInputValue === "") {
+    alert("몇 일에 일정을 추가하실건지 선택해주세요");
+    return false;
+  }
+
   if (timeInputValue === "") {
-    alert("날짜를 선택해주세요");
+    alert("시간을 선택해주세요");
     return false;
   }
 

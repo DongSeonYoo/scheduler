@@ -119,11 +119,23 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   const scheduleBox = document.createElement("section");
   scheduleBox.id = "schedule-box";
 
+  // 날짜 라벨과  해당 일의 일정을 추가하기 위한 버튼을 담기 위한 부모 요소 생성
+  const headerContainer = document.createElement("div");
+  headerContainer.className = "header-container";
+
   // 날짜 라벨 생성
   const dayLabel = document.createElement("h1");
   dayLabel.id = "day-label";
   dayLabel.innerHTML = dayInputValue + "일";
-  scheduleBox.appendChild(dayLabel);
+  headerContainer.appendChild(dayLabel);
+
+  // 해당 일(day)의 일정을 추가하기 위한 버튼
+  const dayAddScheduleBtn = document.createElement("button");
+  dayAddScheduleBtn.id = "day-add-schedule-button";
+  dayAddScheduleBtn.innerHTML = "+";
+  headerContainer.appendChild(dayAddScheduleBtn);
+
+  scheduleBox.appendChild(headerContainer);
 
   // 날짜와 스케줄 내용을 담는 요소 생성
   const dateScheduleBox = document.createElement("div");

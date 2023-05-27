@@ -21,6 +21,33 @@
     </button>
   </header>
 
+  <nav id="menu-bar" class="hidden">
+    <div id="menu-bar-inside">
+      <div id="profile-information">
+        <div class="profile-header">
+          <p id="loggedin-user-name">유동선 [팀원]</p>
+          <button id="menu-close-button">X</button>
+        </div>
+  
+        <div id="login-associated-button-container">
+          <button id="profile-edit-button" class="login-associated-button">
+            프로필 수정
+          </button>
+  
+          <button id="logout-button" class="login-associated-button">
+            로그아웃
+          </button>
+        </div>
+  
+        <button id="view-my-profile-button">
+          내 프로필 보기
+        </button>
+      </div>
+    </div>
+  
+    <div id="border-bottom-line"></div>
+  </nav>
+  
   <main>
     <div id="date-add-container">
       <section id="date-select-area">

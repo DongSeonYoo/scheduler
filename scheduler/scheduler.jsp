@@ -42,7 +42,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <div id="month-label">월</div>
+              <div id="month-text">월</div>
             </div>
             <button id="year-after-button" class="year-button"> > </button>
       </section>
@@ -66,8 +66,8 @@
           <form id="schedule-data-form" action="" onsubmit="return addModalValidate(event)">
             <div id="select-input-area">
               
-              <div id="year-month-label">
-              </div>
+              <div id="year-label"> </div>
+              <div id="month-label"> </div>
 
               <select id="day-select-input">
                 <option value="1">1</option>

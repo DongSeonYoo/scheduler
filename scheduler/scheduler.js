@@ -64,8 +64,10 @@ addScheduleBtn.addEventListener("click", addModalValidate);
 
 const modalOpenBtn = document.getElementById("add-schedule-button");
 modalOpenBtn.addEventListener("click", () => {
-  const yearMonthLabel = document.getElementById("year-month-label");
-  yearMonthLabel.innerHTML = currentYear + "년" + currentMonth + "월";
+  const yearLabel = document.getElementById("year-label");
+  const monthLabel = document.getElementById("month-label");
+  yearLabel.innerHTML = currentYear + "년";
+  monthLabel.innerHTML = currentMonth + "월";
   modalOpen();
 });
 

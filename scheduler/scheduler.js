@@ -104,13 +104,13 @@ function addModalValidate(event) {
     return false;
   }
 
-  makeSchedule(scheduleInputValue, timeInputValue);
+  makeSchedule(dayInputValue, scheduleInputValue, timeInputValue);
   modalClose();
   return true;
 }
 
 
-function makeSchedule(scheduleInputValue, timeInputValue) {
+function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   const noScheduleText = document.getElementById("no-schedule-text");
   if (noScheduleText) {
     scheduleArea.removeChild(noScheduleText);
@@ -122,7 +122,7 @@ function makeSchedule(scheduleInputValue, timeInputValue) {
   // 날짜 라벨 생성
   const dayLabel = document.createElement("h1");
   dayLabel.id = "day-label";
-  dayLabel.innerHTML = "1일";
+  dayLabel.innerHTML = dayInputValue + "일";
   scheduleBox.appendChild(dayLabel);
 
   // 날짜와 스케줄 내용을 담는 요소 생성

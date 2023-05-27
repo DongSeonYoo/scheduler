@@ -262,6 +262,7 @@ button {
 #select-input-area {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #no-schedule-text {
@@ -303,8 +304,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   width: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 100%;
 }
 
 #modal-close-button {

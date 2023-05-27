@@ -45,18 +45,15 @@ yearAfterBtn.addEventListener("click", () => {
 const monthSelectBtn = document.getElementById("month-select-form");
 monthSelectBtn.addEventListener("input", () => {
   currentMonth = monthSelectBtn.value;
-})
+});
 
 const modalOpen = () => {
   document.querySelector(".modal").classList.remove("hidden");
-}
+};
 
 const modalClose = () => {
   document.querySelector(".modal").classList.add("hidden");
-}
-
-
-// 모달에 관련된 동작
+};
 
 // 일정 추가 버튼 누르면 모달 오픈
 const addScheduleBtn = document.getElementById("schedule-add-button");
@@ -109,7 +106,6 @@ function addModalValidate(event) {
   return true;
 }
 
-
 function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   const noScheduleText = document.getElementById("no-schedule-text");
   if (noScheduleText) {
@@ -119,7 +115,7 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   const scheduleBox = document.createElement("section");
   scheduleBox.id = "schedule-box";
 
-  // 날짜 라벨과  해당 일의 일정을 추가하기 위한 버튼을 담기 위한 부모 요소 생성
+  // 날짜 라벨과 해당 일의 일정을 추가하기 위한 버튼을 담기 위한 부모 요소 생성
   const headerContainer = document.createElement("div");
   headerContainer.className = "header-container";
 

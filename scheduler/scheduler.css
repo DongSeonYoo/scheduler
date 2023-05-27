@@ -164,6 +164,29 @@ button {
   align-items: center;
 }
 
+.header-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: antiquewhite;
+  gap: 320px;
+  justify-content: flex-end;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+#day-add-schedule-button {
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+#day-add-schedule-button:hover {
+  background-color: green;
+}
+
 #date-schedule-box {
   display: flex;
 }
@@ -183,15 +206,8 @@ button {
   margin-left: auto;
 }
 
-
 #day-label {
-  text-align: center;
-  align-items: center;
-  border-bottom: solid 1px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 
-  background-color: antiquewhite;
 }
 
 .modal {

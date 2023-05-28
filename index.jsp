@@ -42,9 +42,9 @@
 
       </form>
       <div id="other-button">
-        <a id="find-id-link" class="link" href="find/find-id/find-id.jsp">아이디 찾기</a>
-        <a id="find-pw-link" class="link" href="find/find-pw/validate.jsp">비밀번호 찾기</a>
-        <a id="signup-link" class="link" href="signup/signup.jsp">회원가입</a>
+        <a id="find-id-link" class="link" href="/account/find/find-id/find-id.jsp">아이디 찾기</a>
+        <a id="find-pw-link" class="link" href="/account/find/find-pw/validate.jsp">비밀번호 찾기</a>
+        <a id="signup-link" class="link" href="/account/signup/signup.jsp">회원가입</a>
       </div>
 
     </div>

@@ -9,7 +9,7 @@
 
     <title>회원가입 페이지</title>
 
-    <link rel="stylesheet" type="text/css" href="/daily/signup/signup.css">
+    <link rel="stylesheet" type="text/css" href="signup.css">
 </head>
 
 <body>
@@ -99,7 +99,7 @@
     </div>
   </section>
 
-  <script src="/daily/signup/signup.js"></script>
+  <script src="signup.js"></script>
 </body>
 
 </html>

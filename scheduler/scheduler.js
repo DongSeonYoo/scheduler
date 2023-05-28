@@ -193,3 +193,8 @@ const menuCloseBtn = document.getElementById("menu-close-button");
 menuCloseBtn.addEventListener("click", () => {
   menuBar.classList.add("hidden");
 })
+
+const profileEditButton = document.getElementById("profile-edit-button");
+profileEditButton.addEventListener("click", () => {
+  location.href = "../account/edit/edit-profile.jsp";
+})

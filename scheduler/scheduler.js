@@ -202,3 +202,6 @@ const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
   location.href = "../account/logout/logout_action.jsp";
 })
+
+const loginUserInfoTag = document.getElementById("loggedin-user-info");
+loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";

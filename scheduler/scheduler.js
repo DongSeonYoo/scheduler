@@ -183,7 +183,6 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
 }
 
 const menuBar = document.getElementById("menu-bar");
-
 const menuOpenBtn = document.getElementById("menu-open-button");
 menuOpenBtn.addEventListener("click", () => {
   menuBar.classList.remove("hidden");
@@ -197,4 +196,9 @@ menuCloseBtn.addEventListener("click", () => {
 const profileEditButton = document.getElementById("profile-edit-button");
 profileEditButton.addEventListener("click", () => {
   location.href = "../account/edit/edit-profile.jsp";
+})
+
+const logoutButton = document.getElementById("logout-button");
+logoutButton.addEventListener("click", () => {
+  location.href = "../account/logout/logout_action.jsp";
 })

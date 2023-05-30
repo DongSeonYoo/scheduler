@@ -107,7 +107,7 @@ const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
 const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
 const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
 
-for (let i = 0; i < scheduleYearList.length; i++) {
+for (let i = 0; i < scheduleDayList.length; i++) {
   const day = parseInt(scheduleDayList[i]);
   const time = scheduleTimeList[i];
   const description = scheduleDescriptionList[i];

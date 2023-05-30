@@ -75,8 +75,6 @@ const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
 function addModalValidate(event) {
-  event.preventDefault();
-
   const dayInputValue = document.getElementById("day-select-input").value;
   const timeInputValue = document.getElementById("time-select-input").value;
   const scheduleInputValue = document.getElementById("schedule-text-area").value;
@@ -104,6 +102,17 @@ function addModalValidate(event) {
   makeSchedule(dayInputValue, scheduleInputValue, timeInputValue);
   modalClose();
   return true;
+}
+const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
+const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
+const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
+
+for (let i = 0; i < scheduleYearList.length; i++) {
+  const day = parseInt(scheduleDayList[i]);
+  const time = scheduleTimeList[i];
+  const description = scheduleDescriptionList[i];
+
+  makeSchedule(day, description, time);
 }
 
 function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {

@@ -25,9 +25,21 @@ function initYearSelectLabel() {
   }
 }
 
-// 스케쥴러 페이지
+// ------------ 스케쥴러 페이지 ------------ //
 
-// 이전 연도 버튼
+// -------- 상단 바 --------
+
+// 현재 보고 있는 일정 주인의 프로필을 왼쪽에 보여줄거
+// ...
+
+// 현재 보고있는 일정의 연도와 월 을 보여줌
+const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
+currentScheduleDateLabel.textContent = scheduleDateOfYear + "년 " + scheduleDateOfMonth + "월 일정"; 
+// -----------------------
+
+
+
+// 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML >= "2000") {
@@ -36,7 +48,7 @@ yearPreviousBtn.addEventListener("click", () => {
   }
 });
 
-// 이후 연도 버튼
+// 이후 연도 버튼 동작
 const yearAfterBtn = document.getElementById("year-after-button");
 yearAfterBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML <= "2030") {
@@ -45,7 +57,7 @@ yearAfterBtn.addEventListener("click", () => {
   }
 });
 
-// 월 선택 버튼
+// 월 선택 버튼 동작
 const monthSelectBtn = document.getElementById("month-select-form");
 monthSelectBtn.addEventListener("input", () => {
   currentMonth = monthSelectBtn.value;
@@ -78,6 +90,7 @@ modalCloseBtn.addEventListener("click", modalClose);
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
+// 일정 추가 모달 onsumbit 함수
 function addModalValidate(event) {
   const dayInputValue = document.getElementById("day-select-input").value;
   const timeInputValue = document.getElementById("time-select-input").value;
@@ -103,13 +116,15 @@ function addModalValidate(event) {
     return false;
   }
 
-  makeSchedule(dayInputValue, scheduleInputValue, timeInputValue);
   modalClose();
   return true;
 }
+
 const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
 const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
 const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
+
+scheduleDayList.sort();
 
 for (let i = 0; i < scheduleDayList.length; i++) {
   const day = parseInt(scheduleDayList[i]);
@@ -195,26 +210,33 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   scheduleArea.appendChild(scheduleBox);
 }
 
+// --------- 우측 메뉴바에 관한 동작 --------- //
+
+// 우측 메뉴바를 여는 동작
 const menuBar = document.getElementById("menu-bar");
 const menuOpenBtn = document.getElementById("menu-open-button");
 menuOpenBtn.addEventListener("click", () => {
   menuBar.classList.remove("hidden");
 })
 
+// 우측 메뉴바를 닫는 동작
 const menuCloseBtn = document.getElementById("menu-close-button");
 menuCloseBtn.addEventListener("click", () => {
   menuBar.classList.add("hidden");
 })
 
+// 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)
+const loginUserInfoTag = document.getElementById("loggedin-user-info");
+loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";
+
+// 프로필 수정 버튼 동작
 const profileEditButton = document.getElementById("profile-edit-button");
 profileEditButton.addEventListener("click", () => {
   location.href = "../account/edit/edit-profile.jsp";
 })
 
+// 로그아웃 버튼 동작
 const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
   location.href = "../account/logout/logout_action.jsp";
 })
-
-const loginUserInfoTag = document.getElementById("loggedin-user-info");
-loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";

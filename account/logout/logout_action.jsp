@@ -3,13 +3,14 @@
 
 <%
   String userSession = (String)session.getAttribute("userSession");
+  Boolean flag = false;
 
   if (userSession == null) {
     response.sendRedirect("/");
   }
   else {
     session.removeAttribute("userSession");
-    response.sendRedirect("/");
+    flag = true;
   }
 %>
 
@@ -18,6 +19,14 @@
 <head>
   <meta charset="UTF-8">
   <title>로그아웃</title>
+
+  <script>
+    const flag = "<%= flag %>";
+    if (flag === "true") {
+      alert("로그아웃 되었습니다");
+      location.href = "/";
+    }
+  </script>
 </head>
 <body>
 </body>

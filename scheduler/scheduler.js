@@ -1,17 +1,21 @@
 // 스케쥴러 js
 
 let yearSelectLabel;
-let currentYear;
-let currentMonth;
+let monthSelectForm;
+
+let currentYear = "2023";
+let currentMonth = "5";
 let scheduleArea = document.getElementById("schedule-area");
 
 initYearSelectLabel();
 
 function initYearSelectLabel() {
+
   yearSelectLabel = document.getElementById("year-select-label");
-  currentYear = "2023";
-  currentMonth = "1";
   yearSelectLabel.innerHTML = currentYear + "년";
+
+  monthSelectForm = document.getElementById("month-select-form");
+  monthSelectForm.value = 5;
 
   if (scheduleArea.childElementCount === 0) {
     const noScheduleText = document.createElement("p");

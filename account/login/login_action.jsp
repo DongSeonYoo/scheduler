@@ -33,6 +33,8 @@
     String userPk = resultSet.getString("id");
 
     session.setAttribute("userSession", userPk); // 세션 등록
+    session.setAttribute("currentYearSession", "2023");
+    session.setAttribute("currentMonthSession", "5");
 
   } else {
     message = "아이디 또는 비밀번호가 올바르지 않습니다.";
@@ -54,6 +56,7 @@
     if (isSuccess === "true") {
       alert("로그인 성공");
       location.href = "../../scheduler/scheduler.jsp";
+      
       
     } else {
       alert("로그인 실패: <%= message %>");

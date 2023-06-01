@@ -75,9 +75,6 @@ const modalClose = () => {
 };
 
 // 일정 추가 버튼 누르면 모달 오픈
-const addScheduleBtn = document.getElementById("schedule-add-button");
-addScheduleBtn.addEventListener("click", addModalValidate);
-
 const modalOpenBtn = document.getElementById("add-schedule-button");
 modalOpenBtn.addEventListener("click", () => {
   const yearLabel = document.getElementById("year-label");
@@ -87,6 +84,11 @@ modalOpenBtn.addEventListener("click", () => {
   modalOpen();
 });
 
+// 모달에서 일정 추가 눌렀을때
+const addScheduleBtn = document.getElementById("schedule-add-button");
+addScheduleBtn.addEventListener("click", addModalValidate);
+
+// 모달에서 취소 버튼 눌렀을때
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);
 

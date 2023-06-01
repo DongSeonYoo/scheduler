@@ -120,16 +120,29 @@ function addModalValidate(event) {
   return true;
 }
 
-const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
-const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
-const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
+if (isFindSchedule === "true") {
+  const scheduleData = [];
 
-scheduleDayList.sort();
+  const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
+  const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
+  const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
 
-for (let i = 0; i < scheduleDayList.length; i++) {
-  const day = parseInt(scheduleDayList[i]);
-  const time = scheduleTimeList[i];
-  const description = scheduleDescriptionList[i];
+  for (let i = 0; i < scheduleDayList.length; i++) {
+    scheduleData.push({
+      day: parseInt(scheduleDayList[i]),
+      time: scheduleTimeList[i],
+      description: scheduleDescriptionList[i]
+    });
+  }
+
+  scheduleData.sort((a, b) => a.day - b.day);
+
+  for (const schedule of scheduleData) {
+    makeSchedule(schedule.day, schedule.description, schedule.time);
+  }
+
+
+} else {
 
   makeSchedule(day, description, time);
 }

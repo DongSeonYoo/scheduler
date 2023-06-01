@@ -77,8 +77,8 @@ const modalClose = () => {
 // 일정 추가 버튼 누르면 모달 오픈
 const modalOpenBtn = document.getElementById("add-schedule-button");
 modalOpenBtn.addEventListener("click", () => {
-  const yearLabel = document.getElementById("year-label");
-  const monthLabel = document.getElementById("month-label");
+  const yearLabel = document.getElementById("modal-year-label");
+  const monthLabel = document.getElementById("modal-month-label");
   yearLabel.innerHTML = currentYear + "년";
   monthLabel.innerHTML = currentMonth + "월";
   modalOpen();

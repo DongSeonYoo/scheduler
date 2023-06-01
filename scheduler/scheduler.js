@@ -7,6 +7,9 @@ let currentYear = currentYearSession;
 let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
 
+let hiddenYearValue = document.getElementById("hiddenYearValue");
+let hiddenMonthValue = document.getElementById("hiddenMonthValue");
+
 initYearSelectLabel();
 
 function initYearSelectLabel() {
@@ -17,12 +20,8 @@ function initYearSelectLabel() {
   monthSelectForm = document.getElementById("month-select-form");
   monthSelectForm.value = currentMonth; //현재 보고있는 일정의 월(month)을 기본값으로 지정
 
-  if (scheduleArea.childElementCount === 0) {
-    const noScheduleText = document.createElement("p");
-    noScheduleText.id = "no-schedule-text";
-    noScheduleText.innerHTML = "일정이 없습니다";
-    scheduleArea.appendChild(noScheduleText);
-  }
+  hiddenYearValue.value = currentYear;
+  hiddenMonthValue.value = currentMonth;
 }
 
 // ------------ 스케쥴러 페이지 ------------ //
@@ -44,6 +43,8 @@ yearPreviousBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML >= "2000") {
     currentYear = parseInt(currentYear) - 1;
     yearSelectLabel.innerHTML = currentYear + "년";
+
+    hiddenYearValue.value = currentYear;
   }
 });
 
@@ -53,6 +54,8 @@ yearAfterBtn.addEventListener("click", () => {
   if (yearSelectLabel.innerHTML <= "2030") {
     currentYear = parseInt(currentYear) + 1;
     yearSelectLabel.innerHTML = currentYear + "년";
+
+    hiddenYearValue.value = currentYear;
   }
 });
 
@@ -60,6 +63,7 @@ yearAfterBtn.addEventListener("click", () => {
 const monthSelectBtn = document.getElementById("month-select-form");
 monthSelectBtn.addEventListener("input", () => {
   currentMonth = monthSelectBtn.value;
+  hiddenMonthValue.value = currentMonth;
 });
 
 const modalOpen = () => {

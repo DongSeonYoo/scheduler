@@ -151,7 +151,12 @@ if (isFindSchedule === "true") {
 
 } else {
 
-  makeSchedule(day, description, time);
+  if (scheduleArea.childElementCount === 0) {
+    const noScheduleText = document.createElement("p");
+    noScheduleText.id = "no-schedule-text";
+    noScheduleText.innerHTML = "일정이 없습니다";
+    scheduleArea.appendChild(noScheduleText);
+  }
 }
 
 function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {

@@ -9,7 +9,7 @@
     response.sendRedirect("/");
   }
   else {
-    session.removeAttribute("userSession");
+    session.invalidate();
     flag = true;
   }
 %>

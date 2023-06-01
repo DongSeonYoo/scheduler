@@ -3,8 +3,8 @@
 let yearSelectLabel;
 let monthSelectForm;
 
-let currentYear = "2023";
-let currentMonth = "5";
+let currentYear = currentYearSession;
+let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
 
 initYearSelectLabel();
@@ -15,7 +15,7 @@ function initYearSelectLabel() {
   yearSelectLabel.innerHTML = currentYear + "년";
 
   monthSelectForm = document.getElementById("month-select-form");
-  monthSelectForm.value = 5;
+  monthSelectForm.value = currentMonth; //현재 보고있는 일정의 월(month)을 기본값으로 지정
 
   if (scheduleArea.childElementCount === 0) {
     const noScheduleText = document.createElement("p");
@@ -34,8 +34,7 @@ function initYearSelectLabel() {
 
 // 현재 보고있는 일정의 연도와 월 을 보여줌
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
-currentScheduleDateLabel.textContent = scheduleDateOfYear + "년 " + scheduleDateOfMonth + "월 일정"; 
-// -----------------------
+currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "월 일정";
 
 
 

@@ -13,7 +13,6 @@ let hiddenMonthValue = document.getElementById("hiddenMonthValue");
 initYearSelectLabel();
 
 function initYearSelectLabel() {
-
   yearSelectLabel = document.getElementById("year-select-label");
   yearSelectLabel.innerHTML = currentYear + "년";
 
@@ -24,9 +23,9 @@ function initYearSelectLabel() {
   hiddenMonthValue.value = currentMonth;
 }
 
-// ------------ 스케쥴러 페이지 ------------ //
 
-// -------- 상단 바 --------
+
+// ------------------------------------------------------------ 상단 바 ------------------------------------------------------------//
 
 // 현재 보고 있는 일정 주인의 프로필을 왼쪽에 보여줄거
 // ...
@@ -36,6 +35,7 @@ const currentScheduleDateLabel = document.getElementById("current-schedule-date-
 currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "월 일정";
 
 
+// ------------------------------------------------------------ 일정 선택 영역 ------------------------------------------------------------//
 
 // 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
@@ -122,6 +122,8 @@ function addModalValidate(event) {
   modalClose();
   return true;
 }
+
+// ------------------------------------------------------------ 스케쥴 영역 ------------------------------------------------------------//
 
 if (isFindSchedule === "true") {
   const scheduleData = [];
@@ -241,7 +243,7 @@ menuCloseBtn.addEventListener("click", () => {
   menuBar.classList.add("hidden");
 })
 
-// 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)
+// 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)를 보여줌
 const loginUserInfoTag = document.getElementById("loggedin-user-info");
 loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";
 

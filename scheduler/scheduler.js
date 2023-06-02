@@ -164,6 +164,7 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   if (noScheduleText) {
     scheduleArea.removeChild(noScheduleText);
   }
+  
   // 스케줄 박스 생성
   const scheduleBox = document.createElement("section");
   scheduleBox.id = "schedule-box";
@@ -257,11 +258,11 @@ loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";
 // 프로필 수정 버튼 동작
 const profileEditButton = document.getElementById("profile-edit-button");
 profileEditButton.addEventListener("click", () => {
-  location.href = "../account/edit/edit-profile.jsp";
+  location.href = "../edit-profile/edit-profile.jsp";
 })
 
 // 로그아웃 버튼 동작
 const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
-  location.href = "../account/logout/logout_action.jsp";
+  location.href = "../action/logout_action.jsp";
 })

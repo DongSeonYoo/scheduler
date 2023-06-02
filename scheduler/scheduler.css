@@ -15,6 +15,7 @@ body {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 #top-bar {
@@ -24,7 +25,7 @@ button {
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border: solid 1px;
 }
 
@@ -32,19 +33,81 @@ button {
   background-color: antiquewhite;
 }
 
-#current-user-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex-grow: 1;
+#menu-open-button {
+  border: none;
+  background-color: antiquewhite;
 }
 
-#menu-open-button {
-  cursor: pointer;
+#menu-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: pink;
+}
+
+#menu-bar-inside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#profile-information {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+#loggedin-user-info {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.username-container {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.close-button-container {
+  margin-left: auto;
+}
+
+#menu-close-button {
+  background-color: transparent;
   border: none;
-  margin-right: 20px;
-  background-color: antiquewhite;
+  font-size: 17px;
+}
+
+#login-associated-button-container {
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.login-associated-button {
+  background-color: green;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+}
+
+#view-my-profile-button {
+  background-color: green;
+  border-radius: 10px;
+  width: 185px;
+  height: 30px;
+}
+
+#border-bottom-line {
+  border-bottom: 1px solid;
 }
 
 #date-add-container {
@@ -56,7 +119,6 @@ button {
 
 #date-select-area {
   display: flex;
-  align-items: center;
 }
 
 .schedule-view-add-button {
@@ -65,13 +127,6 @@ button {
   height: 25px;
   border-radius: 5px;
   margin-left: 10px;
-  cursor: pointer;
-}
-
-#date-select-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .year-button {
@@ -79,7 +134,6 @@ button {
   width: 35px;
   height: 25px;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 #add-schedule-button {
@@ -87,8 +141,6 @@ button {
   width: 60px;
   height: 25px;
   border-radius: 5px;
-
-  cursor: pointer;
 }
 
 #year-month-box {
@@ -140,7 +192,7 @@ button {
 #schedule-area {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   background-color: rgb(250, 188, 235);
   border-radius: 10px;
   justify-content: center;
@@ -155,7 +207,6 @@ button {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
-  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -174,7 +225,6 @@ button {
   gap: 40%;
   justify-content: flex-end;
   border-bottom: 1px solid;
-  cursor: pointer;
 }
 
 #day-add-schedule-button {
@@ -206,9 +256,9 @@ button {
   margin-left: auto;
 }
 
-#day-label {
+/* #day-label {
 
-}
+} */
 
 .modal {
   position: fixed;
@@ -289,7 +339,6 @@ button {
 
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   color: rgb(125 127 128);
 
   color: black
@@ -302,7 +351,6 @@ button {
 
 .schedule-set-button {
   border-radius: 10px;
-  cursor: pointer;
   width: 50px;
   height: 100%;
 }

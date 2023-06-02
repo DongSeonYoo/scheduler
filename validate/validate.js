@@ -8,23 +8,23 @@ function validate() {
     return false;
   }
 
-  if (nameValue === "") {
-    alert("이름이 입력되지 않았습니다");
-    return false;
-  }
-
-  if (phoneNumberValue === "") {
-    alert("전화번호가 입력되지 않았습니다");
-    return false;
-  }
-
   if (idValue.length >= 14) {
     alert("아이디의 길이가 너무 깁니다");
     return false;
   }
 
-  if (nameValue.length >= 6) {
-    alert("비밀번호의 길이가 너무 깁니다");
+  if (nameValue === "") {
+    alert("이름이 입력되지 않았습니다");
+    return false;
+  }
+
+  if (nameValue.length > 12) {
+    alert("이름의 길이가 너무 깁니다");
+    return false;
+  }
+
+  if (phoneNumberValue === "") {
+    alert("전화번호가 입력되지 않았습니다");
     return false;
   }
 

@@ -10,7 +10,7 @@
   }
   else {
     session.invalidate();
-    flag = true;
+    response.sendRedirect("/");
   }
 %>
 
@@ -19,14 +19,6 @@
 <head>
   <meta charset="UTF-8">
   <title>로그아웃</title>
-
-  <script>
-    const flag = "<%= flag %>";
-    if (flag === "true") {
-      alert("로그아웃 되었습니다");
-      location.href = "/";
-    }
-  </script>
 </head>
 <body>
 </body>

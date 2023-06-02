@@ -3,13 +3,33 @@ function validate() {
   const nameValue = document.getElementById("name-text-field").value;
   const phoneNumberValue = document.getElementById("phonenumber-text-field").value;
 
-  if (idValue === "" || nameValue === "" || phoneNumberValue === "") {
-    alert("입력되지 않은 폼이 있습니다");
+  if (idValue === "") {
+    alert("아이디가 입력되지 않았습니다");
     return false;
   }
 
-  if (idValue.length >= 14 || nameValue.length >= 6 || phoneNumberValue.length > 11) {
-    alert("아이디, 이름, 전화번호의 길이를 확인해주세요");
+  if (nameValue === "") {
+    alert("이름이 입력되지 않았습니다");
+    return false;
+  }
+
+  if (phoneNumberValue === "") {
+    alert("전화번호가 입력되지 않았습니다");
+    return false;
+  }
+
+  if (idValue.length >= 14) {
+    alert("아이디의 길이가 너무 깁니다");
+    return false;
+  }
+
+  if (nameValue.length >= 6) {
+    alert("비밀번호의 길이가 너무 깁니다");
+    return false;
+  }
+
+  if (phoneNumberValue.length > 11) {
+    alert("전화번호의 길이가 너무 깁니다");
     return false;
   }
 

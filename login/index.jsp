@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% String userSession = (String)session.getAttribute("userSession"); %>
+<% String userSession = (String)session.getAttribute("userSession"); 
+
+  if (userSession != null) {
+    response.sendRedirect("scheduler/scheduler.jsp");
+  }
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -18,8 +23,6 @@
   <section id="container" role="main">
 
     <div id="content">
-
-      <%= userSession %>
 
       <h1 id="title">daily </h1>
 

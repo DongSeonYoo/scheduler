@@ -16,7 +16,7 @@
 
   <title>로그인 페이지</title>
 
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="/login/index.css">
 </head>
 
 <body>

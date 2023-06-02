@@ -29,9 +29,12 @@
   ResultSet resultSet = query.executeQuery();
 
   if (resultSet.next()) {
+    String findPwuserPk = resultSet.getString("id");
 
     flag = true;
+    session.setAttribute("findPwuserPk", findPwuserPk); // 비번 새로고치려는 유저 찾아서 세션 등록
     response.sendRedirect("../reset-pw/reset-pw.jsp");
+
   } else {
     flag = false;
   }

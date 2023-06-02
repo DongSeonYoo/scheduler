@@ -2,8 +2,13 @@ function validate() {
   const pwValue = document.getElementById("new-pw-textfield").value;
   const pwCheckValue = document.getElementById("new-pw-check-textfield").value;
 
-  if (pwValue === "" || pwCheckValue === "") {
-    alert("입력하지 않은 폼이 있습니다");
+  if (pwValue === "") {
+    alert("새로운 패스워드를 입력해 주세요");
+    return false;
+  }
+
+  if (pwCheckLabel === "") {
+    alert("새로운 비밀번호와 동일한 비밀번호를 입력해 주세요");
     return false;
   }
 

@@ -24,7 +24,8 @@
   ArrayList scheduleDescriptionList = new ArrayList();
 
   if (userSession == null) {
-
+    response.sendRedirect("/");
+    
   } else {
     int userPk = Integer.parseInt(userSession);
   

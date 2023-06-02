@@ -19,7 +19,7 @@
 
       <h1 id="title">비밀번호 찾기 </h1>
 
-      <form action="/reset-pw/reset-pw.jsp" onsubmit="return validate()">
+      <form action="/action/validate_action.jsp" onsubmit="return validate()">
 
         <div class="join_content">
           <h4 class="info-label">아이디</h4>

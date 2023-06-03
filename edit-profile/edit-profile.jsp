@@ -19,7 +19,7 @@
 
       <h1 id="title">프로필 수정 페이지</h1>
 
-      <form action="edit-profile_action.jsp" onsubmit="return validate()">
+      <form action="/action/edit-profile_action.jsp" onsubmit="return validate()">
 
         <div class="join_content">
           <div class="fixed-form-container">

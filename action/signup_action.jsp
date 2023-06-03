@@ -55,7 +55,6 @@
     const errorMessage = "<%= errorMessage %>";
 
     if (isSuccess === "true") {
-      alert("회원가입 성공");
       location.href = "/";
 
     } else {

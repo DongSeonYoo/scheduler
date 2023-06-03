@@ -46,7 +46,7 @@
   const message = "<%= message %>";
 
   if (isSucsess === "true") {
-    alert("<%= resultLoginId %>");
+    alert("아이디: <%= resultLoginId %>");
     location.href = "/";
 
   } else {

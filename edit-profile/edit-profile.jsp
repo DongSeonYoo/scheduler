@@ -66,6 +66,7 @@
         </div>
 
       </form>
+      <button id="prev-button" class="action-button">스케쥴 페이지로 돌아가기</button>
 
     </div>
 

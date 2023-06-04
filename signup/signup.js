@@ -89,26 +89,22 @@ phoneNumberInput.addEventListener("input", () => {
 });
 
 const idValidateBtn = document.getElementById("id-validate-button");
-idValidateBtn.addEventListener("click", () => {
+idValidateBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
   const idInputValue = idInput.value;
-  if (idCheckLabel.style.color === "blue") {
-    const form = document.createElement("form");
-    form.action = "../action/id-duplicate-check_action.jsp";
-    form.style.display = "none";
+  const form = document.createElement("form");
+  form.action = "../action/id-duplicate-check_action.jsp";
+  form.style.display = "none";
 
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = "id_value";
-    input.value = idInputValue;
-    form.appendChild(input);
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = "id_value";
+  input.value = idInputValue;
+  form.appendChild(input);
 
-    document.body.appendChild(form);
-    form.submit();
-
-  } else {
-    alert("아이디의 형식을 확인해주세요");
-  }
-
+  document.body.appendChild(form);
+  form.submit();
 });
 
 function validate() {

@@ -13,7 +13,13 @@ const idInput = document.getElementById("id-text-field");
 idInput.addEventListener("input", () => {
   const idRegex = /^(?=.*\d)(?=.*[a-z])[a-z\d]{6,10}$/;
   const idValue = idInput.value;
-  
+
+  if (idValue.length === 0) {
+    idCheckLabel.innerHTML = "아이디를 입력해주세요";
+    idCheckLabel.style.color = "black";
+    return;
+  }
+
   if (idRegex.test(idValue)) {
     idCheckLabel.innerHTML = "올바른 형식입니다";
     idCheckLabel.style.color = "blue";
@@ -29,22 +35,37 @@ pwInput.addEventListener("input", () => {
   const pwRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[!@#$%^&*.])[0-9a-z!@#$%^&*.]{10,14}$/;
   const pwValue = pwInput.value;
 
+  if (pwValue.length === 0) {
+    pwCheckLabel.innerHTML = "비밀번호를 입력해주세요";
+    pwCheckLabel.style.color = "black";
+    return;
+  }
+
   if (pwRegex.test(pwValue)) {
     pwCheckLabel.innerHTML = "올바른 형식입니다";
     pwCheckLabel.style.color = "blue";
+
   } else {
     pwCheckLabel.innerHTML = "비밀번호 형식에 맞지 않습니다";
     pwCheckLabel.style.color = "red";
   }
 });
+
 const pwSameCheckLabel = document.getElementById("pw-same-check-label");
 const checkPwInput = document.getElementById("pw-check-text-field");
 checkPwInput.addEventListener("input", () => {
   const checkPwValue = checkPwInput.value;
 
+  if (checkPwValue.length === 0) {
+    pwSameCheckLabel.innerHTML = "비밀번호를 재확인해주세요";
+    pwSameCheckLabel.style.color = "black";
+    return;
+  }
+
   if (checkPwValue === pwInput.value) {
     pwSameCheckLabel.innerHTML = "비밀번호가 동일합니다";
     pwSameCheckLabel.style.color = "blue";
+
   } else {
     pwSameCheckLabel.innerHTML = "비밀번호가 동일하지 않습니다";
     pwSameCheckLabel.style.color = "red";

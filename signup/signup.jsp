@@ -24,7 +24,7 @@
         <div class="join_content">
           <div id="form-container">
             <h4 class="info-label">아이디 (영어 소문자 + 숫자) 6 ~ 10자리</h4>
-            <label id="id-check-label" class="check-label">올바른 형식이 아닙니다</label>
+            <label id="id-check-label" class="check-label">아이디를 입력해주세요</label>
 
             <div id="id-input-box" class="input-box">
               <input id="id-text-field" class="info-text-field" placeholder="ID" type="text" name="id_value">
@@ -35,7 +35,7 @@
 
           <div id="form-container">
             <h4 class="info-label">비밀번호 (영어 소문자 + 숫자 + 특수문자) 10 ~ 14자리</h4>
-            <label id="pw-check-label" class="check-label">올바른 형식이 아닙니다</label>
+            <label id="pw-check-label" class="check-label">비밀번호를 입력해주세요</label>
 
             <span class="input-box">
               <input id="pw-text-field" class="info-text-field" placeholder="비밀번호" type="password" name="pw_value">
@@ -44,7 +44,7 @@
 
           <div id="form-container">
             <h4 class="info-label">비밀번호 확인</h4>
-            <label id="pw-same-check-label" class="check-label">비밀번호가 동일하지 않습니다</label>
+            <label id="pw-same-check-label" class="check-label">비밀번호를 재확인해주세요</label>
 
             <span class="input-box">
               <input id="pw-check-text-field" class="info-text-field" placeholder="동일한 비밀번호" type="password">
@@ -73,7 +73,7 @@
 
           <div id="form-container">
             <h4 id="phonenumber-label" class="info-label">전화번호 예시: 01000000000</h4>
-            <label id="phonenumber-check-label" class="check-label">올바른 형식이 아닙니다</label>
+            <label id="phonenumber-check-label" class="check-label">전화번호를 입력해주세요</label>
 
             <span id="phonenumber-input-box" class="input-box">
               <input id="phonenumber-text-field" class="info-text-field" placeholder="전화번호" type="text"

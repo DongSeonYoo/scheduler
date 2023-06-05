@@ -64,7 +64,7 @@ input:focus {
   display: flex;
 }
 
-.fixed-value {
+.user-value {
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px;

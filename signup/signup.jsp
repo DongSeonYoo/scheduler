@@ -64,6 +64,7 @@
 
             <div id="name-form">
               <h4 class="info-label">이름</h4>
+              <label id="name-check-label" class="check-label">이름을 입력해주세요</label>
               <span class="input-box">
                 <input id="name-text-field" class="info-text-field" placeholder="이름" type="text" name="name_value">
               </span>

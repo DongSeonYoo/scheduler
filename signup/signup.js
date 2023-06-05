@@ -72,6 +72,29 @@ checkPwInput.addEventListener("input", () => {
   }
 })
 
+const nameCheckLabel = document.getElementById("name-check-label");
+const nameInput = document.getElementById("name-text-field");
+nameInput.addEventListener("input", () => {
+  const nameRegex = /^[a-zA-Z가-힣]{2,}$/;
+  const nameValue = nameInput.value;
+
+  if (nameValue.length === 0) {
+    nameCheckLabel.style.innerHTML = "이름을 입력해주세요";
+    nameCheckLabel.style.color = "black";
+    return;
+  }
+
+  if (nameRegex.test(nameValue)) {
+    nameCheckLabel.style.innerHTML = "올바른 형식입니다";
+    nameCheckLabel.style.color = "blue";
+
+  } else {
+    nameCheckLabel.style.innerHTML = "이름 형식에 맞지 않습니다";
+    nameCheckLabel.style.color = "red";
+  }
+
+})
+
 const phoneNumberCheckLabel = document.getElementById("phonenumber-check-label");
 const phoneNumberInput = document.getElementById("phonenumber-text-field");
 
@@ -158,10 +181,15 @@ function validate() {
     return false;
   }
 
+  if (nameCheckLabel.style.color === "red") {
+    alert("이름 형식을 확인해주세요");
+    return false;
+  }
+
   if (phoneNumberCheckLabel.style.color === "red") {
     alert("전화번호 형식을 확인해주세요");
     return false;
   }
-  
+
   return true;
 }

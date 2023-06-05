@@ -17,15 +17,21 @@ idInput.addEventListener("input", () => {
   if (idValue.length === 0) {
     idCheckLabel.innerHTML = "아이디를 입력해주세요";
     idCheckLabel.style.color = "black";
+    idValidateBtn.disabled = true;
     return;
   }
 
+  // 아이디 입력형식이 올바른 경우 중복 체크 활성화
   if (idRegex.test(idValue)) {
     idCheckLabel.innerHTML = "올바른 형식입니다";
     idCheckLabel.style.color = "blue";
+    idValidateBtn.disabled = false;
+
+  // 아이디 입력형식이 올바르지 않을 경우 중복 체크 비활성화
   } else {
     idCheckLabel.innerHTML = "올바른 형식이 아닙니다";
     idCheckLabel.style.color = "red";
+    idValidateBtn.disabled = true;
   }
 });
 

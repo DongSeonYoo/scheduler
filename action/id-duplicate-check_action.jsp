@@ -4,10 +4,10 @@
 <%
   request.setCharacterEncoding("utf-8");
 
+  // signup.js에서 받아온 사용자의 아이디 (검증할 아이디)
   String checkIdValue = request.getParameter("id_value");
 
-  String message = "";
-  boolean flag = true;
+  Boolean flag = false;
 
   Class.forName("com.mysql.jdbc.Driver");
 
@@ -20,26 +20,27 @@
 
   ResultSet resultSet = query.executeQuery();
 
-  if (resultSet.next()) {
-    flag = false;
-    message = "이미 사용중인 아이디입니다";
-
-  } else {
+  if (resultSet.next()) { // 중복된 아이디가 존재하는 경우
     flag = true;
-    message = "사용 가능한 아이디입니다";
+
+  } else {                // 존재하지 않는 경우
+    flag = false;
   }
 %>
 
+<body>
+  
+</body>
+
 <script>
   const flag = "<%= flag %>";
-  const message = "<%= message %>";
 
-  if (flag === "false") {
-    alert(message);
-    history.back();
+  if (flag === "true") {
+    alert("중복된 아이디가 존재합니다"); 
 
   } else {
-    alert(message);
-    history.back();
+    alert("사용 가능한 아이디 입니다");
   }
+
+  history.back();
 </script>

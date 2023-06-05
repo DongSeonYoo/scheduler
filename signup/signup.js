@@ -29,6 +29,25 @@ idInput.addEventListener("input", () => {
   }
 });
 
+const idValidateBtn = document.getElementById("id-validate-button");
+idValidateBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const idInputValue = idInput.value;
+  const form = document.createElement("form");
+  form.action = "../action/id-duplicate-check_action.jsp";
+  form.style.display = "none";
+
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = "id_value";
+  input.value = idInputValue;
+  form.appendChild(input);
+
+  document.body.appendChild(form);
+  form.submit();
+});
+
 const pwCheckLabel = document.getElementById("pw-check-label");
 const pwInput = document.getElementById("pw-text-field");
 pwInput.addEventListener("input", () => {
@@ -79,51 +98,59 @@ nameInput.addEventListener("input", () => {
   const nameValue = nameInput.value;
 
   if (nameValue.length === 0) {
-    nameCheckLabel.style.innerHTML = "이름을 입력해주세요";
+    nameCheckLabel.innerHTML = "이름을 입력해주세요";
     nameCheckLabel.style.color = "black";
     return;
   }
 
   if (nameRegex.test(nameValue)) {
-    nameCheckLabel.style.innerHTML = "올바른 형식입니다";
+    nameCheckLabel.innerHTML = "올바른 형식입니다";
     nameCheckLabel.style.color = "blue";
 
   } else {
-    nameCheckLabel.style.innerHTML = "이름 형식에 맞지 않습니다";
+    nameCheckLabel.innerHTML = "형식에 맞지 않습니다";
     nameCheckLabel.style.color = "red";
-  }
-
-})
-
-const phoneNumberCheckLabel = document.getElementById("phonenumber-check-label");
-const phoneNumberInput = document.getElementById("phonenumber-text-field");
-
-phoneNumberInput.addEventListener("input", () => {
-  const phoneNumberValue = phoneNumberInput.value;
-  const phoneNumberRegx = /^0\d{10}$/;
-  
-  if (phoneNumberRegx.test(phoneNumberValue)) {
-    phoneNumberCheckLabel.innerHTML = "올바른 형식입니다";
-    phoneNumberCheckLabel.style.color = "blue";
-  } else {
-    phoneNumberCheckLabel.innerHTML = "올바른 형식이 아닙니다";
-    phoneNumberCheckLabel.style.color = "red";
   }
 });
 
-const idValidateBtn = document.getElementById("id-validate-button");
-idValidateBtn.addEventListener("click", (event) => {
+const phoneNumberCheckLabel = document.getElementById("phonenumber-check-label");
+const phoneNumberInput = document.getElementById("phonenumber-text-field");
+phoneNumberInput.addEventListener("input", () => {
+  const phoneNumberValue = phoneNumberInput.value;
+  const phoneNumberRegx = /^0\d{10}$/;
+
+  if (phoneNumberValue.length === 0) {
+    phoneNumberCheckLabel.innerHTML = "전화번호를 입력해주세요";
+    phoneNumberCheckLabel.style.color = "black";
+    phoneNumberValidateBtn.disabled = true;
+    return;
+  }
+
+  if (phoneNumberRegx.test(phoneNumberValue)) {
+    phoneNumberCheckLabel.innerHTML = "올바른 형식입니다";
+    phoneNumberCheckLabel.style.color = "blue";
+    phoneNumberValidateBtn.disabled = false;
+
+  } else {
+    phoneNumberCheckLabel.innerHTML = "올바른 형식이 아닙니다";
+    phoneNumberCheckLabel.style.color = "red";
+    phoneNumberValidateBtn.disabled = true;
+  }
+});
+
+const phoneNumberValidateBtn = document.getElementById("phonenumber-validate-button");
+phoneNumberValidateBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const idInputValue = idInput.value;
+  const phonenumberValue = phoneNumberInput.value;
   const form = document.createElement("form");
-  form.action = "../action/id-duplicate-check_action.jsp";
+  form.action = "../action/phonenumber-duplicate-check_action.jsp";
   form.style.display = "none";
 
   const input = document.createElement("input");
   input.type = "hidden";
-  input.name = "id_value";
-  input.value = idInputValue;
+  input.name = "phonenumber_value";
+  input.value = phonenumberValue;
   form.appendChild(input);
 
   document.body.appendChild(form);

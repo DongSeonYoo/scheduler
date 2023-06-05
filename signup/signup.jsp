@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -5,7 +7,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
     <title>회원가입 페이지</title>
 
@@ -24,13 +25,15 @@
         <div class="join_content">
           <div id="form-container">
             <h4 class="info-label">아이디 (영어 소문자 + 숫자) 6 ~ 10자리</h4>
+
             <label id="id-check-label" class="check-label">아이디를 입력해주세요</label>
+
+            <button id="id-validate-button" class="validate-button" disabled>중복 체크</button>
 
             <div id="id-input-box" class="input-box">
               <input id="id-text-field" class="info-text-field" placeholder="ID" type="text" name="id_value">
             </div>
 
-            <button id="id-validate-button" class="validate-button">중복 체크</button>
           </div>
 
           <div id="form-container">
@@ -53,7 +56,7 @@
 
           <div id="form-container" class="select">
             <div id="position-select-form">
-              <h4 class="info-label">직급</h4>
+              <h4 id="position" class="info-label">직급</h4>
               <select id="position-select" class="input-box" name="position_value" onchange="changeFunc(this)">
                 <option value=""> 직급 </option>
                 <option value="관리자"> 관리자 </option>
@@ -75,6 +78,7 @@
           <div id="form-container">
             <h4 id="phonenumber-label" class="info-label">전화번호 예시: 01000000000</h4>
             <label id="phonenumber-check-label" class="check-label">전화번호를 입력해주세요</label>
+            <button id="phonenumber-validate-button" class="validate-button" disabled>중복 체크</button>
 
             <span id="phonenumber-input-box" class="input-box">
               <input id="phonenumber-text-field" class="info-text-field" placeholder="전화번호" type="text"
@@ -99,8 +103,7 @@
       </form>
 
     </div>
-
-    </div>
+    
   </section>
 
   <script src="signup.js"></script>

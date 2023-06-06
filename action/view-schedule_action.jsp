@@ -1,38 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.sql.*" %>
 
 <%
   request.setCharacterEncoding("utf-8");
 
   String userSession = (String)session.getAttribute("userSession");
-  Boolean flag = false;
   
   if (userSession == null) {
     response.sendRedirect("/");
-
-  } else {
-    flag = true;
-
-    String selectedYearValue = request.getParameter("year");
-    String selectedMonthValue = request.getParameter("month");
-
-    session.setAttribute("currentYearSession", selectedYearValue);
-    session.setAttribute("currentMonthSession", selectedMonthValue);
   }
+
+  String selectedYear = request.getParameter("selectedYear");
+  String selectedMonth = request.getParameter("selectedMonth");
+
+  session.setAttribute("currentYearSession", selectedYear);
+  session.setAttribute("currentMonthSession", selectedMonth);
+
+  response.sendRedirect("../scheduler/scheduler.jsp");
 %>
 
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  <script>
-    const isSuccess = "<%= flag %>";
-    if (isSuccess === "true") {
-      location.href = "../scheduler.jsp";
-    }
-  </script>
-</body>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
 </html>

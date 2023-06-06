@@ -22,36 +22,21 @@ currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "�
 // 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
-  currentYear = parseInt(currentYear) - 1;
-  yearSelectInput.value = currentYear;
-  monthSelectInput.value = currentMonth;
-  dateSelectForm.submit();
+  changeYear(currentYear - 1);
 });
 
 // 이후 연도 버튼 동작
 const yearAfterBtn = document.getElementById("year-after-button");
 yearAfterBtn.addEventListener("click", () => {
   currentYear = parseInt(currentYear) + 1;
-  yearSelectInput.value = currentYear;
-  monthSelectInput.value = currentMonth;
-  dateSelectForm.submit();
+  changeYear(currentYear);
 });
 
 // 월 선택 버튼 동작
 const monthSelectBtn = document.getElementById("month-select-form");
 monthSelectBtn.addEventListener("change", (event) => {
-  yearSelectInput.value = currentYear;
-  monthSelectInput.value = event.target.value;
-  dateSelectForm.submit();
+  changeMonth(event.target.value);
 });
-
-const modalOpen = () => {
-  document.querySelector(".modal").classList.remove("hidden");
-};
-
-const modalClose = () => {
-  document.querySelector(".modal").classList.add("hidden");
-};
 
 // 일정 추가 버튼 누르면 모달 오픈
 const modalOpenBtn = document.getElementById("add-schedule-button");
@@ -255,4 +240,17 @@ function initYearSelectLabel() {
 
   monthSelectForm = document.getElementById("month-select-form");
   monthSelectForm.value = currentMonth; // 현재 보고있는 일정의 월(month)을 기본값으로 지정
+}
+
+function changeYear(newYear) {
+  currentYear = newYear;
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = currentMonth;
+  dateSelectForm.submit();
+}
+
+function changeMonth(newMonth) {
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = newMonth;
+  dateSelectForm.submit();
 }

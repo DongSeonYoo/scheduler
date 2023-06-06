@@ -59,36 +59,6 @@ modalCloseBtn.addEventListener("click", modalClose);
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
-// 일정 추가 모달 onsumbit 함수
-function addModalValidate(event) {
-  const dayInputValue = document.getElementById("day-select-input").value;
-  const timeInputValue = document.getElementById("time-select-input").value;
-  const scheduleInputValue = document.getElementById("schedule-text-area").value;
-
-  if (dayInputValue === "") {
-    alert("몇 일에 일정을 추가하실건지 선택해주세요");
-    return false;
-  }
-
-  if (timeInputValue === "") {
-    alert("시간을 선택해주세요");
-    return false;
-  }
-
-  if (scheduleInputValue === "") {
-    alert("일정을 입력해주세요");
-    return false;
-  }
-
-  if (scheduleInputValue.length > 300) {
-    alert("일정은 300자 이하여야 합니다");
-    return false;
-  }
-
-  modalClose();
-  return true;
-}
-
 // ------------------------------------------------------------ 스케쥴 영역 ------------------------------------------------------------//
 
 // if (isFindSchedule === "true") {
@@ -253,4 +223,42 @@ function changeMonth(newMonth) {
   yearSelectInput.value = currentYear;
   monthSelectInput.value = newMonth;
   dateSelectForm.submit();
+}
+
+function modalOpen() {
+  document.querySelector(".modal").classList.remove("hidden");
+}
+
+function modalClose() {
+  document.querySelector(".modal").classList.add("hidden");
+}
+
+// 일정 추가 모달 onsumbit 함수
+function addModalValidate(event) {
+  const dayInputValue = document.getElementById("day-select-input").value;
+  const timeInputValue = document.getElementById("time-select-input").value;
+  const scheduleInputValue = document.getElementById("schedule-text-area").value;
+
+  if (dayInputValue === "") {
+    alert("몇 일에 일정을 추가하실건지 선택해주세요");
+    return false;
+  }
+
+  if (timeInputValue === "") {
+    alert("시간을 선택해주세요");
+    return false;
+  }
+
+  if (scheduleInputValue === "") {
+    alert("일정을 입력해주세요");
+    return false;
+  }
+
+  if (scheduleInputValue.length > 300) {
+    alert("일정은 300자 이하여야 합니다");
+    return false;
+  }
+
+  modalClose();
+  return true;
 }

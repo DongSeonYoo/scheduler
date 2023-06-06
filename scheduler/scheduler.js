@@ -93,7 +93,31 @@ background.addEventListener("click", modalClose);
 //   }
 // }
 
-function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
+if (isFindSchedule === true) {
+  const scheduleData = [];
+
+  for (let i = 0; i < dayList.length; i++) {
+    scheduleData.push({
+      day: parseInt(dayList[i]),
+      time: parseInt(timeList[i]),
+      description: descriptionList[i]
+    });
+  }
+
+  for (const schedule of scheduleData) {
+    makeSchedule(schedule.day, schedule.description, schedule.time);
+  }
+
+} else {
+  if (scheduleArea.childElementCount === 0) {
+    const noScheduleText = document.createElement("p");
+    noScheduleText.id = "no-schedule-text";
+    noScheduleText.innerHTML = "일정이 없습니다";
+    scheduleArea.appendChild(noScheduleText);
+  }
+}
+
+function makeSchedule(dayInputValue, scheduleDescriptionValue, timeInputValue) {
   const noScheduleText = document.getElementById("no-schedule-text");
   if (noScheduleText) {
     scheduleArea.removeChild(noScheduleText);
@@ -145,7 +169,7 @@ function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   // 스케줄 설명 생성
   const scheduleDescription = document.createElement("p");
   scheduleDescription.id = "schedule-description";
-  scheduleDescription.textContent = scheduleInputValue;
+  scheduleDescription.textContent = scheduleDescriptionValue;
   scheduleDescriptionBox.appendChild(scheduleDescription);
 
   // 스케줄 설정 버튼 생성

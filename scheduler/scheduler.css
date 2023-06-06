@@ -156,8 +156,8 @@ button {
 
 #year-month-box {
   display: flex;
+  justify-content: center;
   width: 150px;
-  justify-content: space-evenly;
 }
 
 #scheduler-container {

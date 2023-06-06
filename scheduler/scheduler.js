@@ -61,38 +61,6 @@ background.addEventListener("click", modalClose);
 
 // ------------------------------------------------------------ 스케쥴 영역 ------------------------------------------------------------//
 
-// if (isFindSchedule === "true") {
-//   const scheduleData = [];
-
-//   const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
-//   const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
-//   const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
-
-//   for (let i = 0; i < scheduleDayList.length; i++) {
-//     scheduleData.push({
-//       day: parseInt(scheduleDayList[i]),
-//       time: scheduleTimeList[i],
-//       description: scheduleDescriptionList[i]
-//     });
-//   }
-
-//   scheduleData.sort((a, b) => a.day - b.day);
-
-//   for (const schedule of scheduleData) {
-//     makeSchedule(schedule.day, schedule.description, schedule.time);
-//   }
-
-
-// } else {
-
-//   if (scheduleArea.childElementCount === 0) {
-//     const noScheduleText = document.createElement("p");
-//     noScheduleText.id = "no-schedule-text";
-//     noScheduleText.innerHTML = "일정이 없습니다";
-//     scheduleArea.appendChild(noScheduleText);
-//   }
-// }
-
 if (isFindSchedule === true) {
   const scheduleData = [];
 

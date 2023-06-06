@@ -92,12 +92,12 @@ logoutButton.addEventListener("click", () => {
 
 function createSchedule() {
   if (isFindSchedule === true) {
-    const scheduleData = [];
-
+    let scheduleData = [];
+    
     for (let i = 0; i < dayList.length; i++) {
       scheduleData.push({
         day: parseInt(dayList[i]),
-        time: parseInt(timeList[i]),
+        time: timeList[i],
         description: descriptionList[i]
       });
     }

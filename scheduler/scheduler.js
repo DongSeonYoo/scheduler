@@ -7,17 +7,16 @@ const yearSelectInput = document.getElementById("year-select-input");
 const monthSelectInput = document.getElementById("month-select-input");
 
 initYearSelectLabel();
-
-// ------------------------------------------------------------ 상단 바 ------------------------------------------------------------//
+createSchedule();
 
 // 현재 보고 있는 일정 주인의 프로필을 왼쪽에 보여줄거
 // ...
 
-// 현재 보고있는 일정의 연도와 월을 보여줌
+// 상단 바에 현재 보고있는 일정의 연도와 월을 보여줌
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
 currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "월 일정";
 
-// ------------------------------------------------------------ 일정 선택 영역 ------------------------------------------------------------//
+// -- 일정 선택 영역 -- 
 
 // 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
@@ -56,53 +55,12 @@ addScheduleBtn.addEventListener("click", addModalValidate);
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);
 
+// 모달 바깥 영역 눌렀을 떄
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
-// ------------------------------------------------------------ 스케쥴 영역 ------------------------------------------------------------//
-
-if (isFindSchedule === true) {
-  const scheduleData = [];
-
-  for (let i = 0; i < dayList.length; i++) {
-    scheduleData.push({
-      day: parseInt(dayList[i]),
-      time: parseInt(timeList[i]),
-      description: descriptionList[i]
-    });
-  }
-
-  for (const schedule of scheduleData) {
-    makeSchedule(schedule.day, schedule.description, schedule.time);
-  }
-
-} else {
-  if (scheduleArea.childElementCount === 0) {
-    const noScheduleText = document.createElement("p");
-    noScheduleText.id = "no-schedule-text";
-    noScheduleText.innerHTML = "일정이 없습니다";
-    scheduleArea.appendChild(noScheduleText);
-  }
-}
-
-function makeSchedule(dayInputValue, scheduleDescriptionValue, timeInputValue) {
-  const noScheduleText = document.getElementById("no-schedule-text");
-  if (noScheduleText) {
-    scheduleArea.removeChild(noScheduleText);
-  }
-
-  // 스케줄 박스 생성
-  const scheduleBox = createScheduleContainer();
-
-  // 스케줄의 day를 나타내는 header를 생성
-  createScheduleHeader(dayInputValue, scheduleBox);
-
-  // 날짜와 스케줄 내용을 담는 요소 생성
-  createScheduleInfo(scheduleBox, timeInputValue, scheduleDescriptionValue);
-}
 
 // --------- 우측 메뉴바에 관한 동작 --------- //
-
 // 우측 메뉴바를 여는 동작
 const menuBar = document.getElementById("menu-bar");
 const menuOpenBtn = document.getElementById("menu-open-button");
@@ -131,6 +89,61 @@ const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
   location.href = "../action/logout_action.jsp";
 });
+
+function createSchedule() {
+  if (isFindSchedule === true) {
+    const scheduleData = [];
+
+    for (let i = 0; i < dayList.length; i++) {
+      scheduleData.push({
+        day: parseInt(dayList[i]),
+        time: parseInt(timeList[i]),
+        description: descriptionList[i]
+      });
+    }
+
+    for (const schedule of scheduleData) {
+      makeSchedule(schedule.day, schedule.description, schedule.time);
+    }
+
+  } else {
+    if (scheduleArea.childElementCount === 0) {
+      const noScheduleText = document.createElement("p");
+      noScheduleText.id = "no-schedule-text";
+      noScheduleText.innerHTML = "일정이 없습니다";
+      scheduleArea.appendChild(noScheduleText);
+    }
+  }
+}
+
+function makeSchedule(dayInputValue, scheduleDescriptionValue, timeInputValue) {
+  const noScheduleText = document.getElementById("no-schedule-text");
+  if (noScheduleText) {
+    scheduleArea.removeChild(noScheduleText);
+  }
+
+  // 스케줄 박스 생성
+  const scheduleBox = createScheduleContainer();
+
+  // 스케줄의 day를 나타내는 header를 생성
+  createScheduleHeader(dayInputValue, scheduleBox);
+
+  // 날짜와 스케줄 내용을 담는 요소 생성
+  createScheduleInfo(scheduleBox, timeInputValue, scheduleDescriptionValue);
+}
+
+function changeYear(newYear) {
+  currentYear = newYear;
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = currentMonth;
+  dateSelectForm.submit();
+}
+
+function changeMonth(newMonth) {
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = newMonth;
+  dateSelectForm.submit();
+}
 
 function createScheduleInfo(scheduleBox, timeInputValue, scheduleDescriptionValue) {
   const dateScheduleBox = document.createElement("div");
@@ -208,19 +221,6 @@ function initYearSelectLabel() {
 
   monthSelectForm = document.getElementById("month-select-form");
   monthSelectForm.value = currentMonth; // 현재 보고있는 일정의 월(month)을 기본값으로 지정
-}
-
-function changeYear(newYear) {
-  currentYear = newYear;
-  yearSelectInput.value = currentYear;
-  monthSelectInput.value = currentMonth;
-  dateSelectForm.submit();
-}
-
-function changeMonth(newMonth) {
-  yearSelectInput.value = currentYear;
-  monthSelectInput.value = newMonth;
-  dateSelectForm.submit();
 }
 
 function modalOpen() {

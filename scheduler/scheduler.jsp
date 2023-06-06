@@ -233,11 +233,11 @@
     const loginUserName = "<%= loginUserName %>";
     const loginUserPosition = "<%= loginUserPosition %>";
 
+    const isFindSchedule = <%= isFindSchedule %>;
+    
     const dayList = <%= dayList %>;
     const timeList = <%= timeList %>;
     const descriptionList = <%= descriptionList %>;
-
-    const isFindSchedule = <%= isFindSchedule %>;
   </script>
 
   <script src="/scheduler/scheduler.js"></script>

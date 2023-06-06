@@ -1,69 +1,48 @@
-// 스케쥴러 js
-
-let yearSelectLabel;
-let monthSelectForm;
-
 let currentYear = currentYearSession;
 let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
 
-let hiddenYearValue = document.getElementById("hiddenYearValue");
-let hiddenMonthValue = document.getElementById("hiddenMonthValue");
+const dateSelectForm = document.getElementById("date-select-form");
+const yearSelectInput = document.getElementById("year-select-input");
+const monthSelectInput = document.getElementById("month-select-input");
 
 initYearSelectLabel();
-
-function initYearSelectLabel() {
-  yearSelectLabel = document.getElementById("year-select-label");
-  yearSelectLabel.innerHTML = currentYear + "년";
-
-  monthSelectForm = document.getElementById("month-select-form");
-  monthSelectForm.value = currentMonth; //현재 보고있는 일정의 월(month)을 기본값으로 지정
-
-  hiddenYearValue.value = currentYear;
-  hiddenMonthValue.value = currentMonth;
-}
-
-
 
 // ------------------------------------------------------------ 상단 바 ------------------------------------------------------------//
 
 // 현재 보고 있는 일정 주인의 프로필을 왼쪽에 보여줄거
 // ...
 
-// 현재 보고있는 일정의 연도와 월 을 보여줌
+// 현재 보고있는 일정의 연도와 월을 보여줌
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
 currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "월 일정";
-
 
 // ------------------------------------------------------------ 일정 선택 영역 ------------------------------------------------------------//
 
 // 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
-  if (yearSelectLabel.innerHTML >= "2000") {
-    currentYear = parseInt(currentYear) - 1;
-    yearSelectLabel.innerHTML = currentYear + "년";
-
-    hiddenYearValue.value = currentYear;
-  }
+  currentYear = parseInt(currentYear) - 1;
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = currentMonth;
+  dateSelectForm.submit();
 });
 
 // 이후 연도 버튼 동작
 const yearAfterBtn = document.getElementById("year-after-button");
 yearAfterBtn.addEventListener("click", () => {
-  if (yearSelectLabel.innerHTML <= "2030") {
-    currentYear = parseInt(currentYear) + 1;
-    yearSelectLabel.innerHTML = currentYear + "년";
-
-    hiddenYearValue.value = currentYear;
-  }
+  currentYear = parseInt(currentYear) + 1;
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = currentMonth;
+  dateSelectForm.submit();
 });
 
 // 월 선택 버튼 동작
 const monthSelectBtn = document.getElementById("month-select-form");
-monthSelectBtn.addEventListener("input", () => {
-  currentMonth = monthSelectBtn.value;
-  hiddenMonthValue.value = currentMonth;
+monthSelectBtn.addEventListener("change", (event) => {
+  yearSelectInput.value = currentYear;
+  monthSelectInput.value = event.target.value;
+  dateSelectForm.submit();
 });
 
 const modalOpen = () => {
@@ -127,44 +106,44 @@ function addModalValidate(event) {
 
 // ------------------------------------------------------------ 스케쥴 영역 ------------------------------------------------------------//
 
-if (isFindSchedule === "true") {
-  const scheduleData = [];
+// if (isFindSchedule === "true") {
+//   const scheduleData = [];
 
-  const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
-  const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
-  const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
+//   const scheduleDayList = scheduleDayListStr.slice(1, -1).split(", ");
+//   const scheduleTimeList = scheduleTimeListStr.slice(1, -1).split(", ");
+//   const scheduleDescriptionList = scheduleDescriptionListStr.slice(1, -1).split(", ");
 
-  for (let i = 0; i < scheduleDayList.length; i++) {
-    scheduleData.push({
-      day: parseInt(scheduleDayList[i]),
-      time: scheduleTimeList[i],
-      description: scheduleDescriptionList[i]
-    });
-  }
+//   for (let i = 0; i < scheduleDayList.length; i++) {
+//     scheduleData.push({
+//       day: parseInt(scheduleDayList[i]),
+//       time: scheduleTimeList[i],
+//       description: scheduleDescriptionList[i]
+//     });
+//   }
 
-  scheduleData.sort((a, b) => a.day - b.day);
+//   scheduleData.sort((a, b) => a.day - b.day);
 
-  for (const schedule of scheduleData) {
-    makeSchedule(schedule.day, schedule.description, schedule.time);
-  }
+//   for (const schedule of scheduleData) {
+//     makeSchedule(schedule.day, schedule.description, schedule.time);
+//   }
 
 
-} else {
+// } else {
 
-  if (scheduleArea.childElementCount === 0) {
-    const noScheduleText = document.createElement("p");
-    noScheduleText.id = "no-schedule-text";
-    noScheduleText.innerHTML = "일정이 없습니다";
-    scheduleArea.appendChild(noScheduleText);
-  }
-}
+//   if (scheduleArea.childElementCount === 0) {
+//     const noScheduleText = document.createElement("p");
+//     noScheduleText.id = "no-schedule-text";
+//     noScheduleText.innerHTML = "일정이 없습니다";
+//     scheduleArea.appendChild(noScheduleText);
+//   }
+// }
 
 function makeSchedule(dayInputValue, scheduleInputValue, timeInputValue) {
   const noScheduleText = document.getElementById("no-schedule-text");
   if (noScheduleText) {
     scheduleArea.removeChild(noScheduleText);
   }
-  
+
   // 스케줄 박스 생성
   const scheduleBox = document.createElement("section");
   scheduleBox.id = "schedule-box";
@@ -243,13 +222,13 @@ const menuBar = document.getElementById("menu-bar");
 const menuOpenBtn = document.getElementById("menu-open-button");
 menuOpenBtn.addEventListener("click", () => {
   menuBar.classList.remove("hidden");
-})
+});
 
 // 우측 메뉴바를 닫는 동작
 const menuCloseBtn = document.getElementById("menu-close-button");
 menuCloseBtn.addEventListener("click", () => {
   menuBar.classList.add("hidden");
-})
+});
 
 // 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)를 보여줌
 const loginUserInfoTag = document.getElementById("loggedin-user-info");
@@ -259,10 +238,21 @@ loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";
 const profileEditButton = document.getElementById("profile-edit-button");
 profileEditButton.addEventListener("click", () => {
   location.href = "../edit-profile/edit-profile.jsp";
-})
+});
 
 // 로그아웃 버튼 동작
 const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
   location.href = "../action/logout_action.jsp";
-})
+});
+
+function initYearSelectLabel() {
+  let monthSelectForm;
+  let yearSelectLabel;
+
+  yearSelectLabel = document.getElementById("year-select-label");
+  yearSelectLabel.innerHTML = currentYear;
+
+  monthSelectForm = document.getElementById("month-select-form");
+  monthSelectForm.value = currentMonth; // 현재 보고있는 일정의 월(month)을 기본값으로 지정
+}

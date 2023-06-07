@@ -36,12 +36,29 @@ monthSelectBtn.addEventListener("change", (event) => {
 });
 
 // 일정 추가 버튼 누르면 모달 오픈
-const modalOpenBtn = document.getElementById("add-schedule-button");
-modalOpenBtn.addEventListener("click", () => {
+const addScheduleBtn = document.getElementById("add-schedule-button");
+addScheduleBtn.addEventListener("click", () => {
+  const modalTitle = document.getElementById("modal-title");
+  const insideDiv = document.getElementById("inside");
+  const addScheduleForm = document.createElement("form");
+
+  modalTitle.innerHTML = "일정 추가"
+  
+  addScheduleForm.id = "schedule-data-form";
+  addScheduleForm.action = "/action/add-schedule_action.jsp";
+  addScheduleForm.onsubmit = addModalValidate;
+
+  while (insideDiv.firstChild) {
+    addScheduleForm.appendChild(insideDiv.firstChild);
+  }
+
+  insideDiv.appendChild(addScheduleForm);
+
   const yearLabel = document.getElementById("modal-year-label");
   const monthLabel = document.getElementById("modal-month-label");
   yearLabel.innerHTML = currentYear + "년";
   monthLabel.innerHTML = currentMonth + "월";
+
   modalOpen();
 });
 

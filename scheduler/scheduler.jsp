@@ -162,8 +162,8 @@
       <div class="background"></div>
       <div class="modalBox">
         <div id="inside">
-          <h2>일정 추가</h2>
-          <form id="schedule-data-form" action="/action/add-schedule_action.jsp" onsubmit="return addModalValidate(event)">
+          <h2 id="modal-title"></h2>
+          
             <div id="select-input-area">
 
               <div id="modal-year-label"> </div>
@@ -219,14 +219,13 @@
                 취소
               </button>
             </div>
-            
+
             <input id="modal-hidden-year-input" type="hidden" name="year">
             <input id="modal-hidden-month-input" type="hidden" name="month">
             <input id="modal-hidden-day-input" type="hidden" name="day">
             <input id="modal-hidden-datetime-input" type="hidden" name="datetime">
             <input id="modal-hidden-description-input" type="hidden" name="description">
 
-          </form>
         </div>
       </div>
     </div>

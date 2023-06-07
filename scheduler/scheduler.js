@@ -117,12 +117,13 @@ function createSchedule() {
 function makeSchedule(userScheduleData) {
   const scheduleBox = createScheduleContainer();
 
-  // 일정 박스의 일(day)을 나타내는 헤더를 생성
+  // 일정 박스의 일(day)을 나타내는 헤더를 생성 (생성한 스케쥴 박스에 일을 넣어줌)
   createScheduleHeader(userScheduleData.day, scheduleBox);
 
-  // 일정의 내용 생성
+  // 일정의 내용 생성 (생성한 스쥴 박스에 시간, 일정 내용을 넣어줌)
   createScheduleInfo(userScheduleData.time, userScheduleData.description, scheduleBox);
 
+  // 만들어진 스케쥴 박스를 스케쥴 영역에 넣어줌
   scheduleArea.appendChild(scheduleBox);
 }
 

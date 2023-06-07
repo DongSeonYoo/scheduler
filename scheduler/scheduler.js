@@ -12,7 +12,7 @@ createSchedule();
 
 // 상단 바에 현재 보고있는 일정의 연도와 월을 보여줌
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
-currentScheduleDateLabel.textContent = currentYear + "년 " + currentMonth + "월 일정";
+currentScheduleDateLabel.innerHTML = currentYear + "년 " + currentMonth + "월 일정";
 
 // -- 일정 선택 영역 -- 
 
@@ -70,7 +70,6 @@ modalCloseBtn.addEventListener("click", modalClose);
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
-
 // --------- 우측 메뉴바에 관한 동작 --------- //
 // 우측 메뉴바를 여는 동작
 const menuBar = document.getElementById("menu-bar");
@@ -87,7 +86,7 @@ menuCloseBtn.addEventListener("click", () => {
 
 // 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)를 보여줌
 const loginUserInfoTag = document.getElementById("loggedin-user-info");
-loginUserInfoTag.textContent = loginUserName + "[" + loginUserPosition + "]";
+loginUserInfoTag.innerHTML = loginUserName + "[" + loginUserPosition + "]";
 
 // 프로필 수정 버튼 동작
 const profileEditButton = document.getElementById("profile-edit-button");
@@ -194,7 +193,7 @@ function createScheduleHeader(dayInputValue) {
 
   const dayLabel = document.createElement("h1");
   dayLabel.className = "day-label";
-  dayLabel.textContent = dayInputValue + "일";
+  dayLabel.innerHTML = dayInputValue + "일";
 
 
   headerContainer.appendChild(dayLabel);
@@ -211,12 +210,12 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContai
 
   const dateDescription = document.createElement("p");
   dateDescription.className = "date-description";
-  dateDescription.textContent = timeInputValue;
+  dateDescription.innerHTML = timeInputValue;
   dateBox.appendChild(dateDescription);
 
   const scheduleDescription = document.createElement("p");
   scheduleDescription.id = "schedule-description";
-  scheduleDescription.textContent = scheduleDescriptionValue;
+  scheduleDescription.innerHTML = scheduleDescriptionValue;
   dateScheduleBox.appendChild(scheduleDescription);
 
   const scheduleSettionButton = document.createElement("div");
@@ -224,12 +223,12 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContai
 
   const modifyButton = document.createElement("button");
   modifyButton.className = "schedule-set-button";
-  modifyButton.textContent = "수정";
+  modifyButton.innerHTML = "수정";
   scheduleSettionButton.appendChild(modifyButton);
 
   const deleteButton = document.createElement("button");
   deleteButton.className = "schedule-set-button";
-  deleteButton.textContent = "삭제";
+  deleteButton.innerHTML = "삭제";
 
 
   scheduleSettionButton.appendChild(deleteButton);
@@ -243,7 +242,7 @@ function initYearSelectLabel() {
   let yearSelectLabel;
 
   yearSelectLabel = document.getElementById("year-select-label");
-  yearSelectLabel.textContent = currentYear;
+  yearSelectLabel.innerHTML = currentYear;
 
   monthSelectForm = document.getElementById("month-select-form");
   monthSelectForm.value = currentMonth; // 현재 보고있는 일정의 월(month)을 기본값으로 지정
@@ -306,4 +305,3 @@ function addModalValidate(event) {
 
   return true;
 }
-

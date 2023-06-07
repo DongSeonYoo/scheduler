@@ -84,6 +84,7 @@ logoutButton.addEventListener("click", () => {
   location.href = "../action/logout_action.jsp";
 });
 
+
 function createSchedule() {
   if (isFindSchedule === true) {
     let scheduleData = [];
@@ -96,11 +97,14 @@ function createSchedule() {
       });
     }
 
-    for (const userScheduleData of scheduleData) {
-      makeSchedule(userScheduleData);
+    let groupedSchedules = groupSchedulesByDay(scheduleData);
+
+    for (const day in groupedSchedules) {
+      makeSchedule(day, groupedSchedules[day]);
     }
 
-  } else {
+  } else { // 만약 스케쥴을 찾지 못했을 시
+
     if (scheduleArea.childElementCount === 0) {
       const noScheduleText = document.createElement("p");
       noScheduleText.id = "no-schedule-text";
@@ -109,6 +113,48 @@ function createSchedule() {
       scheduleArea.appendChild(noScheduleText);
     }
   }
+}
+
+/*
+ 일 별로 그룹화 해야됌
+
+  {
+    1: [
+      {day: 1, time: '15:31', description: 'test'},
+      {day: 1, time: '15:57', description: 'test'}
+    ],
+    2: [
+      {day: 2, time: '15:29', description: '32'}
+    ]
+  }
+
+*/
+
+// 받아온 일정 객체를 날짜별로 그룹화
+function groupSchedulesByDay(scheduleData) {
+  let groupedSchedules = {};
+
+  for (const schedule of scheduleData) {
+    if (!groupedSchedules[schedule.day]) {
+      groupedSchedules[schedule.day] = [];
+    }
+    groupedSchedules[schedule.day].push(schedule);
+  }
+
+  return groupedSchedules;
+}
+
+function makeSchedule(day, userScheduleDataArray) {
+  scheduleBox = createScheduleContainer();
+  createScheduleHeader(day);
+
+  const mainContainer = createScheduleMain();
+
+  for (const userScheduleData of userScheduleDataArray) {
+    createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer);
+  }
+
+  scheduleArea.appendChild(scheduleBox);
 }
 
 function createScheduleContainer() {
@@ -123,17 +169,6 @@ function createScheduleMain() {
   mainContainer.className = "schedule-main-container";
 
   return mainContainer;
-}
-
-function makeSchedule(userScheduleData) {
-  scheduleBox = createScheduleContainer();
-  createScheduleHeader(userScheduleData.day);
-
-  const mainContainer = createScheduleMain();
-  createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer);
-
-
-  scheduleArea.appendChild(scheduleBox);
 }
 
 function createScheduleHeader(dayInputValue) {

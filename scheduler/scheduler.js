@@ -1,6 +1,7 @@
 let currentYear = currentYearSession;
 let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
+let scheduleBox;
 
 const dateSelectForm = document.getElementById("date-select-form");
 const yearSelectInput = document.getElementById("year-select-input");
@@ -104,11 +105,11 @@ function createSchedule() {
     }
 
   } else {
-    
     if (scheduleArea.childElementCount === 0) {
       const noScheduleText = document.createElement("p");
       noScheduleText.id = "no-schedule-text";
       noScheduleText.innerHTML = "일정이 없습니다";
+
       scheduleArea.appendChild(noScheduleText);
     }
   }
@@ -117,6 +118,7 @@ function createSchedule() {
 function createScheduleContainer() {
   const scheduleBox = document.createElement("section");
   scheduleBox.id = "schedule-box";
+
   return scheduleBox;
 }
 
@@ -128,67 +130,61 @@ function createScheduleMain() {
 }
 
 function makeSchedule(userScheduleData) {
-  const scheduleBox = createScheduleContainer();
-  // 일정 박스의 일(day)을 나타내는 헤더를 생성 (생성한 스케쥴 박스에 일을 넣어줌)
-  createScheduleHeader(userScheduleData.day, scheduleBox);
+  scheduleBox = createScheduleContainer();
+  createScheduleHeader(userScheduleData.day);
 
   const mainContainer = createScheduleMain();
-  // 일정의 내용 생성 (생성한 스쥴 박스에 시간, 일정 내용을 넣어줌)
-  createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer, scheduleBox);
+  createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer);
 
-  // 만들어진 스케쥴 박스를 스케쥴 영역에 넣어줌
+
   scheduleArea.appendChild(scheduleBox);
 }
 
-function createScheduleHeader(dayInputValue, scheduleBox) {
+function createScheduleHeader(dayInputValue) {
   const headerContainer = document.createElement("div");
   headerContainer.className = "schedule-header-container";
 
-  // 날짜 라벨 생성
   const dayLabel = document.createElement("h1");
   dayLabel.className = "day-label";
   dayLabel.textContent = dayInputValue + "일";
+
+
   headerContainer.appendChild(dayLabel);
   scheduleBox.appendChild(headerContainer);
 }
 
-function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContainer, scheduleBox) {
+function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContainer) {
   const dateScheduleBox = document.createElement("div");
   dateScheduleBox.id = "date-schedule-box";
 
-  // 날짜 요소 생성
   const dateBox = document.createElement("div");
   dateBox.id = "date-box";
   dateScheduleBox.appendChild(dateBox);
 
-  // 날짜 설명 생성
   const dateDescription = document.createElement("p");
   dateDescription.className = "date-description";
   dateDescription.textContent = timeInputValue;
   dateBox.appendChild(dateDescription);
 
-  // 스케줄 설명 생성
   const scheduleDescription = document.createElement("p");
   scheduleDescription.id = "schedule-description";
   scheduleDescription.textContent = scheduleDescriptionValue;
   dateScheduleBox.appendChild(scheduleDescription);
 
-  // 스케줄 설정 버튼영역 생성
   const scheduleSettionButton = document.createElement("div");
   scheduleSettionButton.id = "schedule-settion-button";
 
-  // 수정 버튼 생성
   const modifyButton = document.createElement("button");
   modifyButton.className = "schedule-set-button";
   modifyButton.textContent = "수정";
   scheduleSettionButton.appendChild(modifyButton);
 
-  // 삭제 버튼 생성
   const deleteButton = document.createElement("button");
   deleteButton.className = "schedule-set-button";
   deleteButton.textContent = "삭제";
-  scheduleSettionButton.appendChild(deleteButton);
 
+
+  scheduleSettionButton.appendChild(deleteButton);
   dateScheduleBox.appendChild(scheduleSettionButton);
   mainContainer.appendChild(dateScheduleBox);
   scheduleBox.appendChild(mainContainer);
@@ -209,12 +205,14 @@ function changeYear(newYear) {
   currentYear = newYear;
   yearSelectInput.value = currentYear;
   monthSelectInput.value = currentMonth;
+
   dateSelectForm.submit();
 }
 
 function changeMonth(newMonth) {
   yearSelectInput.value = currentYear;
   monthSelectInput.value = newMonth;
+  
   dateSelectForm.submit();
 }
 

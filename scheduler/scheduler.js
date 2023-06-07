@@ -45,10 +45,6 @@ modalOpenBtn.addEventListener("click", () => {
   modalOpen();
 });
 
-// 모달에서 일정 추가 눌렀을때
-const addScheduleBtn = document.getElementById("schedule-add-button");
-addScheduleBtn.addEventListener("click", addModalValidate);
-
 // 모달에서 취소 버튼 눌렀을때
 const modalCloseBtn = document.getElementById("modal-close-button");
 modalCloseBtn.addEventListener("click", modalClose);
@@ -212,7 +208,7 @@ function changeYear(newYear) {
 function changeMonth(newMonth) {
   yearSelectInput.value = currentYear;
   monthSelectInput.value = newMonth;
-  
+
   dateSelectForm.submit();
 }
 
@@ -226,30 +222,36 @@ function modalClose() {
 
 // 일정 추가 모달 onsubmit 함수
 function addModalValidate(event) {
-  const dayInputValueModal = document.getElementById("day-select-input").value;
-  const timeInputValueModal = document.getElementById("time-select-input").value;
-  const scheduleInputValueModal = document.getElementById("schedule-text-area").value;
+  const modalDayInputValue = document.getElementById("day-select-input").value;
+  const modalTimeInputValue = document.getElementById("time-select-input").value;
+  const modalDescriptionInputValue = document.getElementById("schedule-text-area").value;
 
-  if (dayInputValueModal === "") {
+  if (modalDayInputValue === "") {
     alert("몇 일에 일정을 추가하실건지 선택해주세요");
     return false;
   }
 
-  if (timeInputValueModal === "") {
+  if (modalTimeInputValue === "") {
     alert("시간을 선택해주세요");
     return false;
   }
 
-  if (scheduleInputValueModal === "") {
+  if (modalDescriptionInputValue === "") {
     alert("일정을 입력해주세요");
     return false;
   }
 
-  if (scheduleInputValueModal.length > 300) {
+  if (modalDescriptionInputValue.length > 300) {
     alert("일정은 300자 이하여야 합니다");
     return false;
   }
 
-  modalClose();
+  document.getElementById("modal-hidden-year-input").value = currentYear;
+  document.getElementById("modal-hidden-month-input").value = currentMonth;
+  document.getElementById("modal-hidden-day-input").value = modalDayInputValue;
+  document.getElementById("modal-hidden-datetime-input").value = modalTimeInputValue;
+  document.getElementById("modal-hidden-description-input").value = modalDescriptionInputValue;
+
   return true;
 }
+

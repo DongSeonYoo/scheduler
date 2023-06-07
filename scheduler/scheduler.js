@@ -114,28 +114,35 @@ function createSchedule() {
   }
 }
 
+function createScheduleContainer() {
+  const scheduleBox = document.createElement("section");
+  scheduleBox.id = "schedule-box";
+  return scheduleBox;
+}
+
+function createScheduleMain() {
+  const mainContainer = document.createElement("div");
+  mainContainer.className = "schedule-main-container";
+
+  return mainContainer;
+}
+
 function makeSchedule(userScheduleData) {
   const scheduleBox = createScheduleContainer();
-
   // 일정 박스의 일(day)을 나타내는 헤더를 생성 (생성한 스케쥴 박스에 일을 넣어줌)
   createScheduleHeader(userScheduleData.day, scheduleBox);
 
+  const mainContainer = createScheduleMain();
   // 일정의 내용 생성 (생성한 스쥴 박스에 시간, 일정 내용을 넣어줌)
-  createScheduleInfo(userScheduleData.time, userScheduleData.description, scheduleBox);
+  createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer, scheduleBox);
 
   // 만들어진 스케쥴 박스를 스케쥴 영역에 넣어줌
   scheduleArea.appendChild(scheduleBox);
 }
 
-function createScheduleContainer() {
-  const scheduleBox = document.createElement("section");
-  scheduleBox.className = "schedule-box";
-  return scheduleBox;
-}
-
 function createScheduleHeader(dayInputValue, scheduleBox) {
   const headerContainer = document.createElement("div");
-  headerContainer.className = "header-container";
+  headerContainer.className = "schedule-header-container";
 
   // 날짜 라벨 생성
   const dayLabel = document.createElement("h1");
@@ -145,7 +152,7 @@ function createScheduleHeader(dayInputValue, scheduleBox) {
   scheduleBox.appendChild(headerContainer);
 }
 
-function createScheduleInfo(timeInputValue, scheduleDescriptionValue, scheduleBox) {
+function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContainer, scheduleBox) {
   const dateScheduleBox = document.createElement("div");
   dateScheduleBox.id = "date-schedule-box";
 
@@ -183,7 +190,8 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, scheduleBo
   scheduleSettionButton.appendChild(deleteButton);
 
   dateScheduleBox.appendChild(scheduleSettionButton);
-  scheduleBox.appendChild(dateScheduleBox);
+  mainContainer.appendChild(dateScheduleBox);
+  scheduleBox.appendChild(mainContainer);
 }
 
 function initYearSelectLabel() {

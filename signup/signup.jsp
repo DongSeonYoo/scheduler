@@ -106,6 +106,7 @@
     
   </section>
 
+  <script src="/common/common.js"></script>
   <script src="signup.js"></script>
 </body>
 

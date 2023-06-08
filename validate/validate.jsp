@@ -63,6 +63,7 @@
     </div>
   </section>
 
+  <script src="/common/common.js"></script>
   <script src="validate.js"></script>
 </body>
 

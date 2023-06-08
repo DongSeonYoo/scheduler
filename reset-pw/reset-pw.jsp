@@ -59,6 +59,7 @@
     </div>
   </section>
 
+  <script src="/common/common.js"></script>
   <script src="reset-pw.js"></script>
 </body>
 

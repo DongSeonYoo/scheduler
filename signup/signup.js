@@ -1,10 +1,5 @@
 let positionSelect = "";
 
-const homeBtn = document.getElementById("home-button");
-homeBtn.addEventListener("click", () => {
-  location.href = "/";
-});
-
 const idCheckLabel = document.getElementById("id-check-label");
 const idInput = document.getElementById("id-text-field");
 idInput.addEventListener("input", () => {

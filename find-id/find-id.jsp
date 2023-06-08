@@ -67,6 +67,7 @@
     </div>
   </section>
 
+  <script src="/common/common.js"></script>
   <script src="find-id.js"></script>
 </body>
 

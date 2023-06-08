@@ -56,8 +56,3 @@ function validate() {
 
   return true;
 }
-
-const homebtn = document.getElementById("home-button");
-homebtn.addEventListener("click", () => {
-  location.href = "/";
-})

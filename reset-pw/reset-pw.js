@@ -1,8 +1,3 @@
-const homebtn = document.getElementById("home-button");
-homebtn.addEventListener("click", () => {
-  location.href = "/";
-})
-
 const pwCheckLabel = document.getElementById("pw-check-label");
 const pwInput = document.getElementById("new-pw-textfield");
 pwInput.addEventListener("input", () => {

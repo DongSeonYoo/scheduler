@@ -1,8 +1,3 @@
-const homebtn = document.getElementById("home-button");
-homebtn.addEventListener("click", () => {
-  location.href = "/";
-})
-
 const phoneNumberCheckLabel = document.getElementById("phonenumber-check-label");
 const phoneNumberInput = document.getElementById("phonenumber-text-field");
 

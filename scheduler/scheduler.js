@@ -3,6 +3,8 @@ let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
 let scheduleBox;
 
+let groupedSchedules;
+
 const dateSelectForm = document.getElementById("date-select-form");
 const yearSelectInput = document.getElementById("year-select-input");
 const monthSelectInput = document.getElementById("month-select-input");
@@ -77,20 +79,20 @@ logoutButton.addEventListener("click", () => {
   location.href = "../action/logout_action.jsp";
 });
 
-
 function createSchedule() {
   if (isFindSchedule === true) {
     let scheduleData = [];
 
     for (let i = 0; i < dayList.length; i++) {
       scheduleData.push({
+        pk: schedulePkList[i],
         day: parseInt(dayList[i]),
         time: timeList[i],
         description: descriptionList[i]
       });
     }
-
-    let groupedSchedules = groupSchedulesByDay(scheduleData);
+    
+    groupedSchedules = groupSchedulesByDay(scheduleData);
 
     for (const day in groupedSchedules) {
       makeSchedule(day, groupedSchedules[day]);
@@ -113,11 +115,12 @@ function createSchedule() {
 
   {
     1: [
-      {day: 1, time: '15:31', description: 'test1'},
-      {day: 1, time: '15:57', description: 'test2'}
+      {pk: 1, day: 1, time: '15:31', description: 'test1'},
+      {pk: 2, day: 1, time: '15:57', description: 'test2'}
     ],
+
     2: [
-      {day: 2, time: '15:29', description: 'test3'}
+      {pk: 3, day: 2, time: '15:29', description: 'test3'}
     ]
   }
 
@@ -145,7 +148,7 @@ function makeSchedule(day, userScheduleDataArray) {
   const mainContainer = createScheduleMain();
 
   for (const userScheduleData of userScheduleDataArray) {
-    createScheduleInfo(userScheduleData.time, userScheduleData.description, mainContainer);
+    createScheduleInfo(userScheduleData.pk, userScheduleData.time, userScheduleData.description, mainContainer);
   }
 
   scheduleArea.appendChild(scheduleBox);
@@ -178,7 +181,7 @@ function createScheduleHeader(dayInputValue) {
   scheduleBox.appendChild(headerContainer);
 }
 
-function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContainer) {
+function createScheduleInfo(schedulePk, timeInputValue, scheduleDescriptionValue, mainContainer) {
   const dateScheduleBox = document.createElement("div");
   dateScheduleBox.id = "date-schedule-box";
 
@@ -202,8 +205,12 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContai
 
   const modifyButton = document.createElement("button");
   modifyButton.className = "schedule-set-button";
+
+  modifyButton.addEventListener("click", () => {
+    modifyScheduleModal(schedulePk);
+  });
+
   modifyButton.innerHTML = "수정";
-  modifyButton.addEventListener("click", modifyScheduleModal);
 
   scheduleSettionButton.appendChild(modifyButton);
 
@@ -272,30 +279,33 @@ function addScheduleModal() {
   modalOpen();
 }
 
-function modifyScheduleModal() {
+function modifyScheduleModal(schedulePk) {
   const modalTitle = document.getElementById("modal-title");
   const insideDiv = document.getElementById("inside");
-  const addScheduleForm = document.createElement("form");
+  const modifyScheduleForm = document.createElement("form");
+  const hiddenSchedulePkInput = document.getElementById("modal-hidden-schedule-pk-input");
 
   modalTitle.innerHTML = "일정 수정";
 
   const form = document.getElementById("schedule-data-form");
   if (!form) {
-    addScheduleForm.id = "schedule-data-form";
-    addScheduleForm.action = "/action/modify-schedule_action.jsp";
-    addScheduleForm.onsubmit = modalValidate;
+    modifyScheduleForm.id = "schedule-data-form";
+    modifyScheduleForm.action = "/action/modify-schedule_action.jsp";
+    modifyScheduleForm.onsubmit = modalValidate;
   
     while (insideDiv.firstChild) {
-      addScheduleForm.appendChild(insideDiv.firstChild);
+      modifyScheduleForm.appendChild(insideDiv.firstChild);
     }
   
-    insideDiv.appendChild(addScheduleForm);
+    insideDiv.appendChild(modifyScheduleForm);
   }
 
   const yearTextLabel = document.getElementById("modal-year-label");
   const monthTextLabel = document.getElementById("modal-month-label");
   yearTextLabel.innerHTML = currentYear + "년";
   monthTextLabel.innerHTML = currentMonth + "월";
+
+  hiddenSchedulePkInput.value = schedulePk;
   modalOpen();
 }
 
@@ -308,7 +318,7 @@ function modalClose() {
 }
 
 // 일정 모달 onsubmit 함수
-function modalValidate(event) {
+function modalValidate() {
   const modalDayInputValue = document.getElementById("day-select-input").value;
   const modalTimeInputValue = document.getElementById("time-select-input").value;
   const modalDescriptionInputValue = document.getElementById("schedule-text-area").value;
@@ -337,7 +347,6 @@ function modalValidate(event) {
   document.getElementById("modal-hidden-month-input").value = currentMonth;
   document.getElementById("modal-hidden-day-input").value = modalDayInputValue;
   document.getElementById("modal-hidden-datetime-input").value = modalTimeInputValue;
-  document.getElementById("modal-hidden-description-input").value = modalDescriptionInputValue;
 
   return true;
 }

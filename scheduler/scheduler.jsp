@@ -13,7 +13,7 @@
   String loginUserName = "";
   String loginUserPosition = "";
 
-  ArrayList<String> schedulePkList = new ArrayList();
+  ArrayList<Integer> schedulePkList = new ArrayList();
   ArrayList<String> dayList = new ArrayList();
   ArrayList<String> timeList = new ArrayList();
   ArrayList<String> descriptionList = new ArrayList();
@@ -52,12 +52,12 @@
   ResultSet schedulerTBresultSet = schedulerTBquery.executeQuery();
 
   while (schedulerTBresultSet.next()) {
-    String getSchedulePk = schedulerTBresultSet.getString("id");
+    int getSchedulePk = schedulerTBresultSet.getInt("id");
     String getDay = schedulerTBresultSet.getString("day");
     String getTime = schedulerTBresultSet.getString("time");
     String getDescription = schedulerTBresultSet.getString("description");
 
-    schedulePkList.add("'" + getSchedulePk + "'");
+    schedulePkList.add(getSchedulePk);
     dayList.add("'" + getDay + "'");
     timeList.add("'" + getTime + "'");
     descriptionList.add("'" + getDescription + "'");
@@ -228,6 +228,7 @@
             <input id="modal-hidden-day-input" type="hidden" name="day">
             <input id="modal-hidden-datetime-input" type="hidden" name="datetime">
             <input id="modal-hidden-description-input" type="hidden" name="description">
+            <input id="modal-hidden-schedule-pk-input" type="hidden" name="schedulePk">
 
         </div>
       </div>

@@ -201,6 +201,8 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContai
   const modifyButton = document.createElement("button");
   modifyButton.className = "schedule-set-button";
   modifyButton.innerHTML = "수정";
+  modifyButton.addEventListener("click", modifyScheduleModal);
+
   scheduleSettionButton.appendChild(modifyButton);
 
   const deleteButton = document.createElement("button");
@@ -265,6 +267,33 @@ function addScheduleModal() {
   yearLabel.innerHTML = currentYear + "년";
   monthLabel.innerHTML = currentMonth + "월";
 
+  modalOpen();
+}
+
+function modifyScheduleModal() {
+  const modalTitle = document.getElementById("modal-title");
+  const insideDiv = document.getElementById("inside");
+  const addScheduleForm = document.createElement("form");
+
+  modalTitle.innerHTML = "일정 수정";
+
+  const form = document.getElementById("schedule-data-form");
+  if (!form) {
+    addScheduleForm.id = "schedule-data-form";
+    addScheduleForm.action = "/action/modify-schedule_action.jsp";
+    addScheduleForm.onsubmit = modalValidate;
+  
+    while (insideDiv.firstChild) {
+      addScheduleForm.appendChild(insideDiv.firstChild);
+    }
+  
+    insideDiv.appendChild(addScheduleForm);
+  }
+
+  const yearTextLabel = document.getElementById("modal-year-label");
+  const monthTextLabel = document.getElementById("modal-month-label");
+  yearTextLabel.innerHTML = currentYear + "년";
+  monthTextLabel.innerHTML = currentMonth + "월";
   modalOpen();
 }
 

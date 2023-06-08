@@ -31,7 +31,6 @@ userNameInput.addEventListener("input", () => {
   }
 })
 
-
 const phoneNumberCheckLabel = document.getElementById("phonenumber-check-label");
 phoneNumberInput.addEventListener("input", () => {
   const phoneNumberValue = phoneNumberInput.value;
@@ -51,6 +50,12 @@ phoneNumberInput.addEventListener("input", () => {
     phoneNumberCheckLabel.style.color = "red";
   }
 });
+
+const prevBtn = document.getElementById("prev-button");
+prevBtn.addEventListener("click", () => {
+  location.href = "../scheduler/scheduler.jsp";
+})
+
 
 function initEditProfile() {
   userIdInput.innerHTML = userId;
@@ -112,8 +117,3 @@ function validate() {
 
   return true;
 }
-
-const prevBtn = document.getElementById("prev-button");
-prevBtn.addEventListener("click", () => {
-  location.href = "../scheduler/scheduler.jsp";
-})

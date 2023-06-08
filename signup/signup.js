@@ -1,12 +1,9 @@
+let positionSelect = "";
+
 const homeBtn = document.getElementById("home-button");
 homeBtn.addEventListener("click", () => {
   location.href = "/";
 });
-
-let positionSelect = "";
-function changeFunc(target) {
-  positionSelect = target.value;
-};
 
 const idCheckLabel = document.getElementById("id-check-label");
 const idInput = document.getElementById("id-text-field");
@@ -162,6 +159,10 @@ phoneNumberValidateBtn.addEventListener("click", (event) => {
   document.body.appendChild(form);
   form.submit();
 });
+
+function changeFunc(target) {
+  positionSelect = target.value;
+};
 
 function validate() {
   const idValue = document.getElementById("id-text-field").value;

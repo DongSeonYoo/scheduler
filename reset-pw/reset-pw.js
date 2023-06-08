@@ -1,30 +1,3 @@
-function validate() {
-  const pwValue = document.getElementById("new-pw-textfield").value;
-  const pwCheckValue = document.getElementById("new-pw-check-textfield").value;
-
-  if (pwValue === "") {
-    alert("새로운 패스워드를 입력해 주세요");
-    return false;
-  }
-
-  if (pwCheckLabel === "") {
-    alert("새로운 비밀번호와 동일한 비밀번호를 입력해 주세요");
-    return false;
-  }
-
-  if (pwCheckLabel.style.color === "red") {
-    alert("비밀번호 형식에 맞지 않습니다");
-    return false;
-  }
-
-  if (pwSameCheckLabel.style.color === "red") {
-    alert("비밀번호가 동일하지 않습니다");
-    return false;
-  }
-
-  return true;
-}
-
 const homebtn = document.getElementById("home-button");
 homebtn.addEventListener("click", () => {
   location.href = "/";
@@ -58,3 +31,30 @@ checkPwInput.addEventListener("input", () => {
     pwSameCheckLabel.style.color = "red";
   }
 })
+
+function validate() {
+  const pwValue = document.getElementById("new-pw-textfield").value;
+  const pwCheckValue = document.getElementById("new-pw-check-textfield").value;
+
+  if (pwValue === "") {
+    alert("새로운 패스워드를 입력해 주세요");
+    return false;
+  }
+
+  if (pwCheckLabel === "") {
+    alert("새로운 비밀번호와 동일한 비밀번호를 입력해 주세요");
+    return false;
+  }
+
+  if (pwCheckLabel.style.color === "red") {
+    alert("비밀번호 형식에 맞지 않습니다");
+    return false;
+  }
+
+  if (pwSameCheckLabel.style.color === "red") {
+    alert("비밀번호가 동일하지 않습니다");
+    return false;
+  }
+
+  return true;
+}

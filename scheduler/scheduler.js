@@ -20,27 +20,30 @@ currentViewUserInfo.innerHTML = loginUserName + "[" + loginUserPosition + "]";
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
 currentScheduleDateLabel.innerHTML = currentYear + "년 " + currentMonth + "월 일정";
 
+// 메뉴바 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)를 보여줌
+const loginUserInfoTag = document.getElementById("loggedin-user-info");
+loginUserInfoTag.innerHTML = loginUserName + "[" + loginUserPosition + "]";
 
-// 이전 연도 버튼 동작
+// 이전 연도 버튼
 const yearPreviousBtn = document.getElementById("year-previous-button");
 yearPreviousBtn.addEventListener("click", () => {
   changeYear(currentYear - 1);
 });
 
-// 이후 연도 버튼 동작
+// 이후 연도 버튼
 const yearAfterBtn = document.getElementById("year-after-button");
 yearAfterBtn.addEventListener("click", () => {
   currentYear = parseInt(currentYear) + 1;
   changeYear(currentYear);
 });
 
-// 월 선택 버튼 동작
+// 월 선택 버튼
 const monthSelectBtn = document.getElementById("month-select-form");
 monthSelectBtn.addEventListener("change", (event) => {
   changeMonth(event.target.value);
 });
 
-// 일정 추가 버튼 누르면 모달 오픈
+// 일정 추가 버튼
 const addScheduleBtn = document.getElementById("add-schedule-button");
 addScheduleBtn.addEventListener("click", addScheduleModal);
 
@@ -52,23 +55,19 @@ modalCloseBtn.addEventListener("click", modalClose);
 const background = document.querySelector(".background");
 background.addEventListener("click", modalClose);
 
-// --------- 우측 메뉴바에 관한 동작 --------- //
-// 우측 메뉴바를 여는 동작
+
+// 우측 메뉴바
 const menuBar = document.getElementById("menu-bar");
 const menuOpenBtn = document.getElementById("menu-open-button");
 menuOpenBtn.addEventListener("click", () => {
   menuBar.classList.remove("hidden");
 });
 
-// 우측 메뉴바를 닫는 동작
+// 우측 메뉴바
 const menuCloseBtn = document.getElementById("menu-close-button");
 menuCloseBtn.addEventListener("click", () => {
   menuBar.classList.add("hidden");
 });
-
-// 상단에 로그인한 사용자의 프로필 정보 (이름과 직급)를 보여줌
-const loginUserInfoTag = document.getElementById("loggedin-user-info");
-loginUserInfoTag.innerHTML = loginUserName + "[" + loginUserPosition + "]";
 
 // 프로필 수정 버튼 동작
 const profileEditButton = document.getElementById("profile-edit-button");
@@ -81,6 +80,7 @@ const logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", () => {
   location.href = "../action/logout_action.jsp";
 });
+
 
 function createSchedule() {
   if (isFindSchedule === true) {

@@ -19,6 +19,10 @@ input:focus {
   outline: none;
 }
 
+.hidden {
+  display: none;
+}
+
 #container {
   margin-left: auto;
   margin-right: auto;
@@ -47,8 +51,22 @@ input:focus {
 
 #form-container.select {
   display: flex;
+  align-items: flex-end;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#id-validate-button {
+  display: inline;
+}
+
+#id-input-box {
+  display: flex;
+  align-items: center;
+}
+
+#position.info-label {
+  margin-bottom: 35px;
 }
 
 .info-label {
@@ -58,6 +76,7 @@ input:focus {
 
 .input-box {
   display: block;
+  width: 100%;
   position: relative;
   height: 51px;
   border: solid 1px #dadada;
@@ -65,9 +84,6 @@ input:focus {
   background: #fff;
   box-sizing: border-box;
   border-radius: 10px;
-}
-
-.input-box {
   margin-top: 10px;
 }
 
@@ -80,7 +96,7 @@ input:focus {
 }
 
 .check-label {
-  color: red;
+  color: black;
 }
 
 #button-container {
@@ -107,4 +123,8 @@ input:focus {
 
 #sign-up-button:hover {
   background-color: orange;
+}
+
+.duplicate-button {
+  
 }

@@ -113,11 +113,11 @@ function createSchedule() {
 
   {
     1: [
-      {day: 1, time: '15:31', description: 'test'},
-      {day: 1, time: '15:57', description: 'test'}
+      {day: 1, time: '15:31', description: 'test1'},
+      {day: 1, time: '15:57', description: 'test2'}
     ],
     2: [
-      {day: 2, time: '15:29', description: '32'}
+      {day: 2, time: '15:29', description: 'test3'}
     ]
   }
 
@@ -131,6 +131,7 @@ function groupSchedulesByDay(scheduleData) {
     if (!groupedSchedules[schedule.day]) {
       groupedSchedules[schedule.day] = [];
     }
+    
     groupedSchedules[schedule.day].push(schedule);
   }
 
@@ -193,6 +194,7 @@ function createScheduleInfo(timeInputValue, scheduleDescriptionValue, mainContai
   const scheduleDescription = document.createElement("p");
   scheduleDescription.id = "schedule-description";
   scheduleDescription.innerHTML = scheduleDescriptionValue;
+
   dateScheduleBox.appendChild(scheduleDescription);
 
   const scheduleSettionButton = document.createElement("div");
@@ -305,8 +307,8 @@ function modalClose() {
   document.querySelector(".modal").classList.add("hidden");
 }
 
-// 일정 추가 모달 onsubmit 함수
-function addModalValidate(event) {
+// 일정 모달 onsubmit 함수
+function modalValidate(event) {
   const modalDayInputValue = document.getElementById("day-select-input").value;
   const modalTimeInputValue = document.getElementById("time-select-input").value;
   const modalDescriptionInputValue = document.getElementById("schedule-text-area").value;

@@ -12,11 +12,14 @@ const monthSelectInput = document.getElementById("month-select-input");
 initYearSelectLabel();
 createSchedule();
 
+// 현재 보고있는 일정 주인의 정보를 보여줌
+const currentViewUserInfo = document.getElementById("current-view-schedule-owner");
+currentViewUserInfo.innerHTML = loginUserName + "[" + loginUserPosition + "]";
+
 // 상단 바에 현재 보고있는 일정의 연도와 월을 보여줌
 const currentScheduleDateLabel = document.getElementById("current-schedule-date-label");
 currentScheduleDateLabel.innerHTML = currentYear + "년 " + currentMonth + "월 일정";
 
-// -- 일정 선택 영역 -- 
 
 // 이전 연도 버튼 동작
 const yearPreviousBtn = document.getElementById("year-previous-button");
@@ -128,7 +131,7 @@ function createSchedule() {
 
 // 받아온 일정 객체를 날짜별로 그룹화
 function groupSchedulesByDay(scheduleData) {
-  let groupedSchedules = {};
+  groupedSchedules = {};
 
   for (const schedule of scheduleData) {
     if (!groupedSchedules[schedule.day]) {
@@ -202,17 +205,13 @@ function createScheduleInfo(schedulePk, timeInputValue, scheduleDescriptionValue
 
   const scheduleSettionButton = document.createElement("div");
   scheduleSettionButton.id = "schedule-settion-button";
-
+ 
   const modifyButton = document.createElement("button");
   modifyButton.className = "schedule-set-button";
-
-  modifyButton.addEventListener("click", () => {
-    modifyScheduleModal(schedulePk);
-  });
-
   modifyButton.innerHTML = "수정";
-
-  scheduleSettionButton.appendChild(modifyButton);
+  modifyButton.addEventListener("click", () => {
+    modifyScheduleModal(schedulePk, timeInputValue, scheduleDescriptionValue);
+  });
 
   const deleteButton = document.createElement("button");
   deleteButton.className = "schedule-set-button";
@@ -221,10 +220,13 @@ function createScheduleInfo(schedulePk, timeInputValue, scheduleDescriptionValue
     deleteScheduleModal(schedulePk);
   });
 
-
+  scheduleSettionButton.appendChild(modifyButton);
   scheduleSettionButton.appendChild(deleteButton);
+
   dateScheduleBox.appendChild(scheduleSettionButton);
+
   mainContainer.appendChild(dateScheduleBox);
+
   scheduleBox.appendChild(mainContainer);
 }
 
@@ -282,13 +284,23 @@ function addScheduleModal() {
   modalOpen();
 }
 
-function modifyScheduleModal(schedulePk) {
+function modifyScheduleModal(schedulePk, timeInputValue, scheduleDescriptionValue) {
   const modalTitle = document.getElementById("modal-title");
+  const yearTextLabel = document.getElementById("modal-year-label");
+  const monthTextLabel = document.getElementById("modal-month-label");
+  const timeSelectInput = document.getElementById("time-select-input");
+  const scheduleDescriptionText = document.getElementById("schedule-text-area");
+
   const insideDiv = document.getElementById("inside");
+
   const modifyScheduleForm = document.createElement("form");
   const hiddenSchedulePkInput = document.getElementById("modal-hidden-schedule-pk-input");
 
   modalTitle.innerHTML = "일정 수정";
+  yearTextLabel.innerHTML = currentYear + "년";
+  monthTextLabel.innerHTML = currentMonth + "월";
+  timeSelectInput.value = timeInputValue;
+  scheduleDescriptionText.value = scheduleDescriptionValue;
 
   const form = document.getElementById("schedule-data-form");
   if (!form) {

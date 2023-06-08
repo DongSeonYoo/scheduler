@@ -347,6 +347,7 @@ function modalValidate() {
   document.getElementById("modal-hidden-month-input").value = currentMonth;
   document.getElementById("modal-hidden-day-input").value = modalDayInputValue;
   document.getElementById("modal-hidden-datetime-input").value = modalTimeInputValue;
+  document.getElementById("modal-hidden-description-input").value = modalDescriptionInputValue;
 
   return true;
 }

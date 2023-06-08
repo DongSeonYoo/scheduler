@@ -37,30 +37,7 @@ monthSelectBtn.addEventListener("change", (event) => {
 
 // 일정 추가 버튼 누르면 모달 오픈
 const addScheduleBtn = document.getElementById("add-schedule-button");
-addScheduleBtn.addEventListener("click", () => {
-  const modalTitle = document.getElementById("modal-title");
-  const insideDiv = document.getElementById("inside");
-  const addScheduleForm = document.createElement("form");
-
-  modalTitle.innerHTML = "일정 추가"
-  
-  addScheduleForm.id = "schedule-data-form";
-  addScheduleForm.action = "/action/add-schedule_action.jsp";
-  addScheduleForm.onsubmit = addModalValidate;
-
-  while (insideDiv.firstChild) {
-    addScheduleForm.appendChild(insideDiv.firstChild);
-  }
-
-  insideDiv.appendChild(addScheduleForm);
-
-  const yearLabel = document.getElementById("modal-year-label");
-  const monthLabel = document.getElementById("modal-month-label");
-  yearLabel.innerHTML = currentYear + "년";
-  monthLabel.innerHTML = currentMonth + "월";
-
-  modalOpen();
-});
+addScheduleBtn.addEventListener("click", addScheduleModal);
 
 // 모달에서 취소 버튼 눌렀을때
 const modalCloseBtn = document.getElementById("modal-close-button");
@@ -261,6 +238,34 @@ function changeMonth(newMonth) {
   monthSelectInput.value = newMonth;
 
   dateSelectForm.submit();
+}
+
+function addScheduleModal() {
+  const modalTitle = document.getElementById("modal-title");
+  const insideDiv = document.getElementById("inside");
+  const addScheduleForm = document.createElement("form");
+
+  modalTitle.innerHTML = "일정 추가"
+
+  const form = document.getElementById("schedule-data-form");
+  if (!form) {
+    addScheduleForm.id = "schedule-data-form";
+    addScheduleForm.action = "/action/add-schedule_action.jsp";
+    addScheduleForm.onsubmit = modalValidate;
+
+    while (insideDiv.firstChild) {
+      addScheduleForm.appendChild(insideDiv.firstChild);
+    }
+
+    insideDiv.appendChild(addScheduleForm);
+  }
+
+  const yearLabel = document.getElementById("modal-year-label");
+  const monthLabel = document.getElementById("modal-month-label");
+  yearLabel.innerHTML = currentYear + "년";
+  monthLabel.innerHTML = currentMonth + "월";
+
+  modalOpen();
 }
 
 function modalOpen() {

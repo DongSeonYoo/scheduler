@@ -217,6 +217,9 @@ function createScheduleInfo(schedulePk, timeInputValue, scheduleDescriptionValue
   const deleteButton = document.createElement("button");
   deleteButton.className = "schedule-set-button";
   deleteButton.innerHTML = "삭제";
+  deleteButton.addEventListener("click", () => {
+    deleteScheduleModal(schedulePk);
+  });
 
 
   scheduleSettionButton.appendChild(deleteButton);
@@ -300,13 +303,24 @@ function modifyScheduleModal(schedulePk) {
     insideDiv.appendChild(modifyScheduleForm);
   }
 
-  const yearTextLabel = document.getElementById("modal-year-label");
-  const monthTextLabel = document.getElementById("modal-month-label");
-  yearTextLabel.innerHTML = currentYear + "년";
-  monthTextLabel.innerHTML = currentMonth + "월";
-
   hiddenSchedulePkInput.value = schedulePk;
   modalOpen();
+}
+
+function deleteScheduleModal(schedulePk) {
+  const askDeleteSchedule = confirm("일정을 삭제하시겠습니까?");
+  if (askDeleteSchedule) {
+    const deleteScheduleForm = document.createElement("form");
+    const hiddenSchedulePkInput = document.getElementById("modal-hidden-schedule-pk-input");
+
+    deleteScheduleForm.action = "/action/delete-schedule_action.jsp";
+    hiddenSchedulePkInput.value = schedulePk;
+
+    deleteScheduleForm.appendChild(hiddenSchedulePkInput);
+    document.body.appendChild(deleteScheduleForm);
+
+    deleteScheduleForm.submit();
+  }
 }
 
 function modalOpen() {

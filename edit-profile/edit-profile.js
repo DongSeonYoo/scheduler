@@ -1,8 +1,3 @@
-const userId = userInfoList[0];
-const userPosition = userInfoList[1];
-const userName = userInfoList[2];
-const userPhoneNumber = userInfoList[3];
-
 const userIdInput = document.getElementById("user-id");
 const userPositionInput = document.getElementById("user-position");
 const userNameInput = document.getElementById("name-text-field");
@@ -58,10 +53,10 @@ prevBtn.addEventListener("click", () => {
 
 
 function initEditProfile() {
-  userIdInput.innerHTML = userId;
-  userPositionInput.innerHTML = userPosition;
-  userNameInput.value = userName;
-  phoneNumberInput.value = userPhoneNumber;
+  userIdInput.innerHTML = userInfoList[0];
+  userPositionInput.innerHTML = userInfoList[1];
+  userNameInput.value = userInfoList[2];
+  phoneNumberInput.value = userInfoList[3];
 }
 
 function validate() {

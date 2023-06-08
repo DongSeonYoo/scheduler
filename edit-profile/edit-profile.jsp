@@ -27,10 +27,12 @@
   ResultSet resultSet = query.executeQuery();
 
   while (resultSet.next()) {
-    userInfoList.add(resultSet.getString("login_id"));
-    userInfoList.add(resultSet.getString("position"));
-    userInfoList.add(resultSet.getString("name"));
-    userInfoList.add(resultSet.getString("phone_number"));
+    String loginId = resultSet.getString("login_id");
+    String position = resultSet.getString("position");
+    String name = resultSet.getString("name");
+    String phoneNumber = resultSet.getString("phone_number");
+
+    userInfoList.add("'" + loginId + "', '" + position + "', '" + name + "', '" + phoneNumber + "'");
   }
 %>
 
@@ -105,12 +107,7 @@
   </section>
 
   <script>
-    const userInfoList = [
-      "<%= userInfoList.get(0) %>",
-      "<%= userInfoList.get(1) %>",
-      "<%= userInfoList.get(2) %>",
-      "<%= userInfoList.get(3) %>"
-    ];
+    const userInfoList = <%= userInfoList %>;
 
   </script>
 

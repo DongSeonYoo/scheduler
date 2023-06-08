@@ -13,6 +13,7 @@
   String loginUserName = "";
   String loginUserPosition = "";
 
+  ArrayList<String> schedulePkList = new ArrayList();
   ArrayList<String> dayList = new ArrayList();
   ArrayList<String> timeList = new ArrayList();
   ArrayList<String> descriptionList = new ArrayList();
@@ -42,7 +43,7 @@
   }
 
   // 현재 보고있는 날짜의 일정을 가져옴 (정렬된 상태로)
-  String schedulerTBsql = "SELECT DATE_FORMAT(datetime, '%d') AS day, TIME_FORMAT(datetime, '%H:%i') AS time, description FROM scheduler_TB WHERE YEAR(datetime) = ? AND MONTH(datetime) = ? AND user_id = ? ORDER BY datetime";
+  String schedulerTBsql = "SELECT id, DATE_FORMAT(datetime, '%d') AS day, TIME_FORMAT(datetime, '%H:%i') AS time, description FROM scheduler_TB WHERE YEAR(datetime) = ? AND MONTH(datetime) = ? AND user_id = ? ORDER BY datetime";
 
   PreparedStatement schedulerTBquery = connect.prepareStatement(schedulerTBsql);
   schedulerTBquery.setString(1, currentYearSession);
@@ -51,10 +52,12 @@
   ResultSet schedulerTBresultSet = schedulerTBquery.executeQuery();
 
   while (schedulerTBresultSet.next()) {
+    String getSchedulePk = schedulerTBresultSet.getString("id");
     String getDay = schedulerTBresultSet.getString("day");
     String getTime = schedulerTBresultSet.getString("time");
     String getDescription = schedulerTBresultSet.getString("description");
 
+    schedulePkList.add("'" + getSchedulePk + "'");
     dayList.add("'" + getDay + "'");
     timeList.add("'" + getTime + "'");
     descriptionList.add("'" + getDescription + "'");
@@ -241,6 +244,7 @@
 
     const isFindSchedule = <%= isFindSchedule %>;
     
+    const schedulePkList = <%= schedulePkList %>;
     const dayList = <%= dayList %>;
     const timeList = <%= timeList %>;
     const descriptionList = <%= descriptionList %>;

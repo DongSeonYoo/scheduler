@@ -3,8 +3,6 @@ let currentMonth = currentMonthSession;
 let scheduleArea = document.getElementById("schedule-area");
 let scheduleBox;
 
-let groupedSchedules;
-
 const dateSelectForm = document.getElementById("date-select-form");
 const yearSelectInput = document.getElementById("year-select-input");
 const monthSelectInput = document.getElementById("month-select-input");
@@ -131,7 +129,7 @@ function createSchedule() {
 
 // 받아온 일정 객체를 날짜별로 그룹화
 function groupSchedulesByDay(scheduleData) {
-  groupedSchedules = {};
+  let groupedSchedules = {};
 
   for (const schedule of scheduleData) {
     if (!groupedSchedules[schedule.day]) {

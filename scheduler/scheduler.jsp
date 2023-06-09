@@ -85,7 +85,7 @@
 <body>
   <header id="top-bar" class="topbar-draw-color">
     <div id="current-view-schedule-owner">
-      유동선 [팀원]의 일정<!-- 현재 보고있는 일정의 주인의 프로필을 db에서 가져올거이름 가져와서 넣을거고-->
+      <!-- 현재 보고있는 일정의 주인 이름 -->
     </div>
     <p id="current-schedule-date-label"> </p>
     <button id="menu-open-button">

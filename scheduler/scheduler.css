@@ -245,6 +245,11 @@ button {
 #schedule-settion-button {
   margin-right: 10px;
   margin-left: auto;
+  display: flex;
+}
+
+.schedule-set-button:hover {
+  background-color: rgb(204, 181, 185);
 }
 
 .modal {
@@ -339,7 +344,7 @@ button {
 .schedule-set-button {
   border-radius: 10px;
   width: 50px;
-  height: 100%;
+  height: 25px;
 }
 
 #modal-close-button {

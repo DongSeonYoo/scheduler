@@ -36,6 +36,11 @@ function validate() {
     return false;
   }
 
+  if (pwCheckValue.innerHTML === "") {
+    alert("비밀번호 재확인 란을 입력해주세요");
+    return false;
+  }
+
   if (pwCheckLabel === "") {
     alert("새로운 비밀번호와 동일한 비밀번호를 입력해 주세요");
     return false;
@@ -46,7 +51,7 @@ function validate() {
     return false;
   }
 
-  if (pwSameCheckLabel.style.color === "red") {
+  if (pwCheckLabel !== pwSameCheckLabel.value) {
     alert("비밀번호가 동일하지 않습니다");
     return false;
   }

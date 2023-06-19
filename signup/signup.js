@@ -1,4 +1,6 @@
 let positionSelect = "";
+let idValidateFlag = false;
+let phoneNumberValidateFlag = false;
 
 const idCheckLabel = document.getElementById("id-check-label");
 const idInput = document.getElementById("id-text-field");
@@ -44,6 +46,7 @@ idValidateBtn.addEventListener("click", (event) => {
 
   document.body.appendChild(form);
   form.submit();
+  idValidateFlag = true;
 });
 
 const pwCheckLabel = document.getElementById("pw-check-label");
@@ -153,6 +156,7 @@ phoneNumberValidateBtn.addEventListener("click", (event) => {
 
   document.body.appendChild(form);
   form.submit();
+  phoneNumberValidateFlag = true;
 });
 
 function changeFunc(target) {
